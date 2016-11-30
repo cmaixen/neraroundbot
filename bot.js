@@ -7,7 +7,7 @@ var FirebaseManager = require('./FirebaseManager.js');
 
 if(process.env.NODE_ENV === 'production') {
   bot = new Bot(token);
-  bot.setWebHook('YOUR-APP-URL' + bot.token);
+  bot.setWebHook('http://telegram.me/Neraroundbot' + 290603420:AAFQAW_RMCsEMyq_MH68lYBJnqsMUOXwPCM);
 }
 else {
   bot = new Bot(token, { polling: true });
