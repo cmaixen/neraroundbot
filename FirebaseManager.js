@@ -5,7 +5,7 @@ var firebase = require("firebase");
 
 firebase.initializeApp({
  serviceAccount: "neraroundbot-306b7c420e67.json",
- databaseURL: "YOUR-FIREBASE-URL"
+ databaseURL: "https://neraroundbot.firebaseio.com/"
 });
 
 var db  = firebase.database(),
