@@ -5,6 +5,8 @@ var bot;
 
 var FirebaseManager = require('./FirebaseManager.js');
 
+var kontrolchatid;
+
 if(process.env.NODE_ENV === 'production') {
   bot = new Bot(token);
   bot.setWebHook('https://neraroundbot.herokuapp.com/' + bot.token);
