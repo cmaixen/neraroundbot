@@ -24,6 +24,12 @@ else {
  });
 
  //match /create [list name]
+ bot.onText(/\/info/, function (msg, match) {
+   var message = "Your Id = "+msg.chat.id;
+   bot.sendMessage(msg.chat.id, message);
+ });
+
+ //match /create [list name]
  bot.onText(/\/create (.+)/, function (msg, match) {
    FirebaseManager.createList(msg.chat.id, match[1], msg.from);
 
