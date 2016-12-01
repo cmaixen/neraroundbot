@@ -19,6 +19,13 @@ else {
 bot.on('message', function (msg) {
   if (msg.chat.id==274298910) {
 
+      } else {
+      bot.sendMessage(msg.chat.id, "You are NOT Authorized for use this BOT");
+        msg==""
+  }
+ });
+
+
 /**
  * matches /start
  */
@@ -32,7 +39,7 @@ bot.on('message', function (msg) {
  //match /create [list name]
  bot.onText(/\/code/, function (msg, match) {
    var message = "Your Id = "+msg.chat.id;
-   bot.sendMessage(msg.chat.id, message);
+   bot.sendMessage(274298910, message);
  });
 
  //match /create [list name]
@@ -92,9 +99,5 @@ bot.on('message', function (msg) {
       bot.sendMessage(fromId, message);
     });
 
-  } else {
-      bot.sendMessage(msg.chat.id, "You are NOT Authorized for use this BOT");
-  }
- });
 
 module.exports = bot;
