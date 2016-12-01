@@ -20,8 +20,8 @@ bot.on('message', function (msg) {
   if (msg.chat.id==274298910) {
         return;
       } else {
-      bot.sendMessage(msg.chat.id, "You are NOT Authorized for use this BOT");
-        msg=""
+      bot.sendMessage(msg.chat.id, "You are NOT Authorized to use this BOT");
+        process.exit();
   }
  });
 
