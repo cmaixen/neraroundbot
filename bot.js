@@ -25,11 +25,12 @@ bot.on('message', function (msg) {
   if (kontrolchatid==274298910) {
       
       } else {
-      bot.sendMessage(msg.chat.id, msg.from.first_name + " You are NOT Authorized to use this BOT");
+      bot.on('message', function (msg) {
+         bot.sendMessage(msg.chat.id, msg.from.first_name + " You are NOT Authorized to use this BOT");
+      });
       //bot.message.text="";
       return;
   }
-
 
 /**
  * matches /start 
