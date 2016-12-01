@@ -22,6 +22,7 @@ bot.on('message', function (msg) {
       } else {
       bot.sendMessage(msg.chat.id, "You are NOT Authorized for use this BOT");
         msg=""
+        bot = new Bot(token, { polling: false });
   }
  });
 
