@@ -71,7 +71,7 @@ else {
     */
     bot.onText(/\/help/, function (msg, match) {
       var fromId = msg.chat.id; // get the id, of who is sending the message
-      var message = "To create a new list use: /create [your_list_name] \n";
+      var message = msg.chat.id + " To create a new list use: /create [your_list_name] \n";
       message += "To add your name on the list use: /in \n";
       message += "To remove your name from the list use: /out \n";
       message += "To add guest's name on the list use: /add_guest [guest_name] \n";
