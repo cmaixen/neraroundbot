@@ -17,13 +17,16 @@ else {
  * Auth Control
  */
 bot.on('message', function (msg) {
-  if (msg.chat.id==274298910) {
-        return;
+    kontrolchatid=msg.chat.id
+ });
+
+  if (kontrolchatid==274298910) {
+      
       } else {
       bot.sendMessage(msg.chat.id, msg.from.first_name + " You are NOT Authorized to use this BOT");
-      bot.message.text="";
+      //bot.message.text="";
+      return;
   }
- });
 
 
 /**
