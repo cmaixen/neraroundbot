@@ -21,6 +21,7 @@ bot.on('message', function (msg) {
         return;
       } else {
       bot.sendMessage(msg.chat.id, "You are NOT Authorized to use this BOT");
+        return;
         process.exit();
   }
  });
