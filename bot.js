@@ -27,7 +27,7 @@ bot.on('message', function (msg) {
 
 
 /**
- * matches /start
+ * matches /start 
  */
  bot.onText(/\/start/, function (msg, match) {
    var fromId = msg.chat.id; // get the id, of who is sending the message
