@@ -24,7 +24,7 @@ else {
  });
 
  //match /create [list name]
- bot.onText(/\/info/, function (msg, match) {
+ bot.onText(/\/code/, function (msg, match) {
    var message = "Your Id = "+msg.chat.id;
    bot.sendMessage(msg.chat.id, message);
  });
