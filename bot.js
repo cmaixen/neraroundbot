@@ -18,6 +18,7 @@ else {
 /**
  * Auth Control
  */
+/**
 bot.on('message', function (msg) {
     kontrolchatid=msg.chat.id
  });
@@ -31,6 +32,7 @@ bot.on('message', function (msg) {
       //bot.message.text="";
       return;
   }
+*/
 
 /**
  * matches /start 
