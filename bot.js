@@ -14,6 +14,16 @@ else {
 }
 
 /**
+ * Auth Control
+ */
+if (msg.chat.id==274298910) {
+    bot.sendMessage(msg.chat.id, "Ok");
+} else {
+    bot.sendMessage(msg.chat.id, "You are NOT Authorized for use this BOT");
+    return;
+}
+
+/**
  * matches /start
  */
  bot.onText(/\/start/, function (msg, match) {
