@@ -21,7 +21,7 @@ bot.on('message', function (msg) {
         return;
       } else {
       bot.sendMessage(msg.chat.id, msg.from.first_name + " You are NOT Authorized to use this BOT");
-      bot.leaveChat(chatId);
+      bot.leaveChat(msg.chat.id);
   }
  });
 
