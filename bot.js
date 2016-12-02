@@ -44,7 +44,7 @@ if (process.env.NODE_ENV === 'production') {
 
   bot.onText(/@/, function (msg, match) {
     if(msg.text.indexOf('@') == 0) {
-      bot.sendMessage(msg.chat.id, msg.from.first_name + " " + msg.text + " ekledim");
+      bot.sendMessage(msg.chat.id, msg.from.first_name + " " + msg.text + " ekledim ");
       FirebaseManager.managerGuests(bot, msg.chat.id, msg.text, 'add');
     }
   });
