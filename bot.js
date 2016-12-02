@@ -59,17 +59,17 @@ a      });
 
  /**
   * matches @
-
-  bot.onText('@'(.+), function (msg, match) {
-    FirebaseManager.managerParticipants(bot, msg.chat.id, match[1], msg.from, 'add');
-  });
   */
-//var deneme = bot.message.text;
+  bot.onText("@", function (msg, match) {
+    bot.sendMessage(msg.chat.id, msg.from.first_name + " ekledim");
+   // FirebaseManager.managerParticipants(bot, msg.chat.id, match[1], msg.from, 'add');
+  });
 
-if(bot.message.indexOf('@') !== -1) {
-  bot.sendMessage(msg.chat.id, msg.from.first_name + " ekledim");
+
+//if(bot.message.indexOf('@') !== -1) {
+//  bot.sendMessage(msg.chat.id, msg.from.first_name + " ekledim");
   //FirebaseManager.managerParticipants(bot, msg.chat.id, 'match[1]', msg.from, 'add');
-}
+//}
 
 
   /**
