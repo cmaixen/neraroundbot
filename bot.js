@@ -17,7 +17,7 @@ else {
 
 /**
  * Auth Control
- */
+r */
 /**
 bot.on('message', function (msg) {    kontrolchatid=msg.chat.id
  });
@@ -27,7 +27,7 @@ bot.on('message', function (msg) {    kontrolchatid=msg.chat.id
       } else {
       bot.on('message', function (msg) {
          bot.sendMessage(msg.chat.id, msg.from.first_name + " You are NOT Authorized to use this BOT");
-      });
+a      });
 )      //bot.message.text="";
       return;
   }
@@ -59,10 +59,18 @@ bot.on('message', function (msg) {    kontrolchatid=msg.chat.id
 
  /**
   * matches @
-  */
+
   bot.onText('@'(.+), function (msg, match) {
     FirebaseManager.managerParticipants(bot, msg.chat.id, match[1], msg.from, 'add');
   });
+  */
+var deneme = bot.message.text;
+
+if(deneme.indexOf('@') !== -1) {
+  bot.sendMessage(msg.chat.id, msg.from.first_name + " ekledim");
+  //FirebaseManager.managerParticipants(bot, msg.chat.id, 'match[1]', msg.from, 'add');
+}
+
 
   /**
    * matches /out
