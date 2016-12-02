@@ -42,8 +42,8 @@ if (process.env.NODE_ENV === 'production') {
   * matches @
   */
   bot.onText(/@/, function (msg, match) {
-    bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " ekledim");
-    FirebaseManager.managerParticipants(bot, msg.chat.id, match[1], msg.from, 'add');
+    //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " ekledim");
+    FirebaseManager.managerParticipants(bot, msg.chat.id, msg.from.first_name, msg.from.last_name, 'add');
   });
 
   /**
