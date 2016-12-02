@@ -11,7 +11,7 @@ if(process.env.NODE_ENV === 'production') {
   bot = new Bot(token);
   bot.setWebHook('https://neraroundbot.herokuapp.com/' + bot.token);
 }
-/else {
+else {
   bot = new Bot(token, { polling: true });
 }
 
@@ -60,7 +60,7 @@ a      });
  /**
   * matches @
   */
-   bot.onText(/\/in/, function (msg, match) {
+  bot.onText(/\/in/, function (msg, match) {
     bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " ekledim");
    // FirebaseManager.managerParticipants(bot, msg.chat.id, match[1], msg.from, 'add');
   });
