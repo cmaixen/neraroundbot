@@ -64,7 +64,8 @@ if (process.env.NODE_ENV === 'production') {
   /**
     * matches /add_guest
    */
-   bot.onText(/\/remove_guest (.+)/, function (msg, match) {
+   bot.onText(/D (.+)/, function (msg, match) {
+     bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " cikardim");
      FirebaseManager.managerGuests(bot, msg.chat.id, match[1], 'remove');
    });
 
