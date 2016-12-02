@@ -11,7 +11,7 @@ if(process.env.NODE_ENV === 'production') {
   bot = new Bot(token);
   bot.setWebHook('https://neraroundbot.herokuapp.com/' + bot.token);
 }
-else {
+/else {
   bot = new Bot(token, { polling: true });
 }
 
@@ -21,7 +21,7 @@ r */
 /**
 bot.on('message', function (msg) {    kontrolchatid=msg.chat.id
  });
-
+/
   if (kontrolchatid==274298910) {
       
       } else {
@@ -60,8 +60,8 @@ a      });
  /**
   * matches @
   */
-  bot.onText("@", function (msg, match) {
-    bot.sendMessage(msg.chat.id, msg.from.first_name + " ekledim");
+   bot.onText(/\/in/, function (msg, match) {
+    bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " ekledim");
    // FirebaseManager.managerParticipants(bot, msg.chat.id, match[1], msg.from, 'add');
   });
 
@@ -70,6 +70,7 @@ a      });
 //  bot.sendMessage(msg.chat.id, msg.from.first_name + " ekledim");
   //FirebaseManager.managerParticipants(bot, msg.chat.id, 'match[1]', msg.from, 'add');
 //}
+//  bot.onText("@", function (msg, match) {
 
 
   /**
