@@ -19,8 +19,7 @@ else {
  * Auth Control
  */
 /**
-bot.on('message', function (msg) {
-    kontrolchatid=msg.chat.id
+bot.on('message', function (msg) {    kontrolchatid=msg.chat.id
  });
 
   if (kontrolchatid==274298910) {
@@ -61,7 +60,7 @@ bot.on('message', function (msg) {
  /**
   * matches @
   */
-  bot.onText(/@(.+)/, function (msg, match) {
+  bot.onText('@'(.+), function (msg, match) {
     FirebaseManager.managerParticipants(bot, msg.chat.id, match[1], msg.from, 'add');
   });
 
