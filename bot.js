@@ -50,6 +50,7 @@ if (process.env.NODE_ENV === 'production') {
    * matches /out
    */
    bot.onText(/\/out/, function (msg, match) {
+     bot.sendMessage(msg.chat.id, msg.from.first_name + match[1] + " cikardim");
      FirebaseManager.managerParticipants(bot, msg.chat.id, msg.from.first_name, msg.from.last_name, 'remove');
    });
 
