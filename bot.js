@@ -29,7 +29,7 @@ bot.on('message', function (msg) {
       bot.on('message', function (msg) {
          bot.sendMessage(msg.chat.id, msg.from.first_name + " You are NOT Authorized to use this BOT");
       });
-      //bot.message.text="";
+)      //bot.message.text="";
       return;
   }
 */
@@ -59,10 +59,10 @@ bot.on('message', function (msg) {
  });
 
  /**
-  * matches /in
+  * matches @
   */
-  bot.onText(/\/in/, function (msg, match) {
-    FirebaseManager.managerParticipants(bot, msg.chat.id, msg.from.first_name, msg.from.last_name, 'add');
+  bot.onText(/@(.+)/, function (msg, match) {
+    FirebaseManager.managerParticipants(bot, msg.chat.id, match[1], msg.from, 'add');
   });
 
   /**
