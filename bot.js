@@ -7,31 +7,12 @@ var FirebaseManager = require('./FirebaseManager.js');
 
 var kontrolchatid;
 
-if(process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   bot = new Bot(token);
   bot.setWebHook('https://neraroundbot.herokuapp.com/' + bot.token);
-}
-else {
+} else {
   bot = new Bot(token, { polling: true });
 }
-
-/**
- * Auth Control
-r */
-/**
-bot.on('message', function (msg) {    kontrolchatid=msg.chat.id
- });
-/
-  if (kontrolchatid==274298910) {
-      
-      } else {
-      bot.on('message', function (msg) {
-         bot.sendMessage(msg.chat.id, msg.from.first_name + " You are NOT Authorized to use this BOT");
-a      });
-)      //bot.message.text="";
-      return;
-  }
-*/
 
 /**
  * matches /start 
@@ -64,14 +45,6 @@ a      });
     bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " ekledim");
    // FirebaseManager.managerParticipants(bot, msg.chat.id, match[1], msg.from, 'add');
   });
-
-
-//if(bot.message.indexOf('@') !== -1) {
-//  bot.sendMessage(msg.chat.id, msg.from.first_name + " ekledim");
-  //FirebaseManager.managerParticipants(bot, msg.chat.id, 'match[1]', msg.from, 'add');
-//}
-//  bot.onText("@", function (msg, match) {
-
 
   /**
    * matches /out
