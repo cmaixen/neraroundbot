@@ -70,13 +70,13 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
     arrParticipants.splice(index, 1);
   }else{
     bot.sendMessage(listId, 'This name not exists in the list');
-    //return;
+    return;
   }
  
  if(arrParticipants.length <= 0){
     bot.sendMessage(listId, 'Round Closed! \nWelldone!!');
   }else{
-    return;
+    bot.sendMessage(listId, 'bitmedi!!' + arrParticipants.length);
   }
  
 
