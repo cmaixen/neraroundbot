@@ -125,11 +125,11 @@ FirebaseManager.prototype.showList = function (bot, listId) {
      //output
      for(var i=0; i<participantsList.length; i+=1){
        output += '' +participantsList[i]+'\n';
-       count = i;
+       //count = i;
        //output += ''+(i+1)+'. '+participantsList[i]+'\n';
      }
    
-    output = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n' + '\n' + output + '\n\n0/' + count ;
+    //output = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n' + '\n' + output + '\n\n0/' + count ;
 
      bot.sendMessage(listId, output);
   });
