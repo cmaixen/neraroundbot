@@ -76,16 +76,27 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
  
  if(arrParticipants.length <= 0){
     bot.sendMessage(listId, 'Round Closed! \nWelldone!!');
-    FirebaseManager.createList(msg.chat.id, match[1], msg.from, 0); 
+    //FirebaseManager.createList(msg.chat.id, match[1], msg.from, 0); 
+    //Set datas to list
+    listsRef.update({
+      participants: arrParticipants
+    });
+    listsRef.update({
+        statusfield: 0
+      });
   }else{
-    bot.sendMessage(listId, 'bitmedi!!' + arrParticipants.length);
+    //bot.sendMessage(listId, 'bitmedi!!' + arrParticipants.length);
+     //Set datas to list
+    listsRef.update({
+      participants: arrParticipants
+    });
   }
  
 
   //Set datas to list
-  listsRef.update({
-    participants: arrParticipants
-  });
+  //listsRef.update({
+   // participants: arrParticipants
+  //});
 };
 
 FirebaseManager.prototype.managerParticipants = function(bot, listId, firstName, lastName, action){
