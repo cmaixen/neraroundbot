@@ -13,9 +13,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
  //match /create [list name]
- bot.onText(/\/create (.+)/, function (msg, match) {
+ bot.onText(/Round! (.+)/, function (msg, match) {
    FirebaseManager.createList(msg.chat.id, match[1], msg.from);
-   var message = "Your attendance list was created: "+match[1];
+   var message = "Drop @'s ";
    bot.sendMessage(msg.chat.id, message);
  });
 
@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'production') {
   */
   bot.onText(/@/, function (msg, match) {
     if(msg.text.indexOf('@') == 0) {
-      bot.sendMessage(msg.chat.id, msg.from.first_name + " " + msg.text + " Added!");
+      //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + msg.text + " Added!");
       FirebaseManager.managerGuests(bot, msg.chat.id, msg.text, 'add');
     }
   });
@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === 'production') {
     * matches D -- Done account
    */
    bot.onText(/D (.+)/, function (msg, match) {
-     bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1].split(" ")[0] + " Done!");
+     //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1].split(" ")[0] + " Done!");
      FirebaseManager.managerGuests(bot, msg.chat.id, match[1].split(" ")[0], 'remove');
    });
 
@@ -41,7 +41,7 @@ if (process.env.NODE_ENV === 'production') {
    * matches /remove -- Listeden cikart
    */
    bot.onText(/Remove! (.+)/, function (msg, match) {
-     bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " removed from the round!");
+     //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " removed from the round!");
      FirebaseManager.managerGuests(bot, msg.chat.id, match[1], 'remove');
      //FirebaseManager.managerParticipants(bot, msg.chat.id, msg.from.first_name, msg.from.last_name, 'remove');
    });
