@@ -20,7 +20,7 @@ var FirebaseManager = function () {};
  * @param  {[type]} listname [description]
 / * @return {[type]}          [description]
  */
-FirebaseManager.prototype.createList = function (listId, listname, author, status) {
+ FirebaseManager.prototype.createList = function (listId, listname, author, status) {
   //Get current list
   var list = listId.toString(),
       listReference = 'list_'+list.replace(/-|\s/g,'');
@@ -76,6 +76,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
  
  if(arrParticipants.length <= 0){
     bot.sendMessage(listId, 'Round Closed! \nWelldone!!');
+    FirebaseManager.createList(msg.chat.id, match[1], msg.from, 0); 
   }else{
     bot.sendMessage(listId, 'bitmedi!!' + arrParticipants.length);
   }
