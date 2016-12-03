@@ -7,8 +7,7 @@ var FirebaseManager = require('./FirebaseManager.js');
 var kontrolchatid;
 
 if (process.env.NODE_ENV === 'production') {
-  bot = new Bot(token);  bot.setWebHook('https://neraroundbot.herokuapp.com/' + bot.token);
-} else {
+  bot = new Bot(token);  bot.setWebHook('https://neraroundbot.herokuapp.com/' + bot.token);} else {
   bot = new Bot(token, { polling: true });
 }
 
@@ -19,7 +18,6 @@ if (process.env.NODE_ENV === 'production') {
  var message = "Drop @'s \nRound started!!";
  bot.sendMessage(msg.chat.id, message); 
   });
-
 
   /**
   * matches @ -- Account ekle
@@ -58,7 +56,7 @@ if (process.env.NODE_ENV === 'production') {
   /**
    * matches /showList
    */
-   bot.onText(/\/notdone/, function (msg, match) {
+   bot.onText(/\/check/, function (msg, match) {
      var list = FirebaseManager.showListNotDone(bot, msg.chat.id);
    });
 
@@ -72,6 +70,7 @@ if (process.env.NODE_ENV === 'production') {
       message += "To remove your account from the round use: /remove @account \n";
       message += "To say you are Done for the round use: D @account \n";
       message += "To show the list use: /show \n";
+      message += "To show the list of users NOT Done use: /check \n";
       bot.sendMessage(fromId, message);
     });
 
