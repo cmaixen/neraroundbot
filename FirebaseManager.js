@@ -67,8 +67,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       index = arrParticipants.indexOf(fullname);
 
   if(index > -1){
-    arrParticipants.splice(index, 1);
-    //bot.sendMessage(listId, 'Name was removed!');
+    arrParticipants.splice(index, 1);    //bot.sendMessage(listId, 'Name was removed!');
   }else{
     //bot.sendMessage(listId, 'This name not exists in the list');
     return;
@@ -120,7 +119,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
         participantsList = listObj[listReference].participants || [],
         listName = listObj[listReference].listName,
         count = 0,
-        output = listName+'\n';
+        output = '';
 
      //output
      for(var i=0; i<participantsList.length; i+=1){
@@ -129,8 +128,8 @@ FirebaseManager.prototype.showList = function (bot, listId) {
        //output += ''+(i+1)+'. '+participantsList[i]+'\n';
      }
    
-    output = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n' + output ;
-    output += '\nCount' + (count+1) ;
+    output = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n' + output ;
+    output += '\n0/' + (count+1) ;
 
      bot.sendMessage(listId, output);
   });
