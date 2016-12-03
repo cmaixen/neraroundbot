@@ -43,7 +43,8 @@ if (process.env.NODE_ENV === 'production') {
    */
    bot.onText(/\/remove/, function (msg, match) {
      bot.sendMessage(msg.chat.id, msg.from.first_name + match[1] + " removed from the round!");
-     FirebaseManager.managerParticipants(bot, msg.chat.id, msg.from.first_name, msg.from.last_name, 'remove');
+     FirebaseManager.managerGuests(bot, msg.chat.id, match[1], 'remove');
+     //FirebaseManager.managerParticipants(bot, msg.chat.id, msg.from.first_name, msg.from.last_name, 'remove');
    });
 
   /**
