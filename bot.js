@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
   */
   bot.onText(/@/, function (msg, match) {
     if(msg.text.indexOf('@') == 0) {
-      bot.sendMessage(msg.chat.id, msg.from.first_name + " " + msg.text + " ekledim ");
+      bot.sendMessage(msg.chat.id, msg.from.first_name + " " + msg.text + " Added!");
       FirebaseManager.managerGuests(bot, msg.chat.id, msg.text, 'add');
     }
   });
@@ -34,7 +34,7 @@ if (process.env.NODE_ENV === 'production') {
     * matches D -- Done account
    */
    bot.onText(/D (.+)/, function (msg, match) {
-     bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " cikardim");
+     bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " Done!");
      FirebaseManager.managerGuests(bot, msg.chat.id, match[1], 'remove');
    });
 
@@ -42,7 +42,7 @@ if (process.env.NODE_ENV === 'production') {
    * matches /remove -- Listeden cikart
    */
    bot.onText(/\/remove/, function (msg, match) {
-     bot.sendMessage(msg.chat.id, msg.from.first_name + match[1] + " removed from the round!");
+     bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " removed from the round!");
      FirebaseManager.managerGuests(bot, msg.chat.id, match[1], 'remove');
      //FirebaseManager.managerParticipants(bot, msg.chat.id, msg.from.first_name, msg.from.last_name, 'remove');
    });
