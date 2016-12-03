@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'production') {
 
  bot.onText(/\/code/, function (msg, match) {
    var message = "Your Id = "+msg.chat.id;
-   bot.sendMessage(274298910, message);
+   bot.sendMessage(msg.chat.id, message);
  });
 
 //match /create [list name] 
