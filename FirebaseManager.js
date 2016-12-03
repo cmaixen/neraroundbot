@@ -67,11 +67,17 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       index = arrParticipants.indexOf(fullname);
 
   if(index > -1){
-    arrParticipants.splice(index, 1);    //bot.sendMessage(listId, 'Name was removed!');
+    arrParticipants.splice(index, 1);
   }else{
-    //bot.sendMessage(listId, 'This name not exists in the list');
+    bot.sendMessage(listId, 'This name not exists in the list');
+    //return;
+  }
+  if(arrParticipants.indexOf() < 0){
+    bot.sendMessage(listId, 'Round Closed! \nWelldone!!');
+  }else{
     return;
   }
+ 
 
   //Set datas to list
   listsRef.update({
@@ -135,5 +141,28 @@ FirebaseManager.prototype.showList = function (bot, listId) {
   });
 };
 
+FirebaseManager.prototype.showListNotDone = function (bot, listId) {
+  ref.once("value", function(snapshot) {
 
+    var listObj = snapshot.val(),
+        list = listId.toString(),
+        listReference = 'list_'+list.replace(/-|\s/g,''),
+        listsRef = ref.child(listReference),
+        participantsList = listObj[listReference].participants || [],
+        listName = listObj[listReference].listName,
+        count = 0,
+        output = '';
+
+     //output
+     for(var i=0; i<participantsList.length; i+=1){
+       output += '' +participantsList[i]+'\n';
+       count = i;
+     }
+   
+    output = 'Users NOT Done! \n\n' + output ;
+    output += '\nCount ' + (count+1) ;
+
+    bot.sendMessage(listId, output);
+  });
+};
 module.exports = new FirebaseManager();
