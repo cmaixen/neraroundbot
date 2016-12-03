@@ -43,3 +43,5 @@ Line 10: Set your heroku app URL: bot.setWebHook('YOUR-APP-URL' + bot.token);
 1. Run `heroku config:set TOKEN=SET HERE THE TOKEN YOU'VE GOT FROM THE BOTFATHER`.
 2. Run `git add -A && git commit -m "Ready to run on heroku" && git push heroku master` to deploy your bot to the Heroku server.
 3. Test your bot.
+
+Test
