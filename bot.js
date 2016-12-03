@@ -12,18 +12,11 @@ if (process.env.NODE_ENV === 'production') {
   bot = new Bot(token, { polling: true });
 }
 
- //match /create [list name]
- //bot.onText(/Round! (.+)/, function (msg, match) {
-   //FirebaseManager.createList(msg.chat.id, "Round", msg.from);
-   //var message = "Drop @'s /nRound started!!";
-   //bot.sendMessage(msg.chat.id, message);
- //});
 
 //match /create [list name] 
- bot.onText(/\/round (.+)/, function (msg, match) { 
+ bot.onText(/\/start (.+)/, function (msg, match) { 
  FirebaseManager.createList(msg.chat.id, match[1], msg.from); 
- //var message = "Your attendance list was created: "+match[1];
- var message = "Drop @'s /nRound started!!";
+ var message = "Drop @'s \nRound started!!";
  bot.sendMessage(msg.chat.id, message); 
   });
 
