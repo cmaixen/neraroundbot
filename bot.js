@@ -8,40 +8,21 @@ var FirebaseManager = require('./FirebaseManager.js');
 var kontrolchatid;
 
 if (process.env.NODE_ENV === 'production') {
-  bot = new Bot(token);
-  bot.setWebHook('https://neraroundbot.herokuapp.com/' + bot.token);
+  bot = new Bot(token);  bot.setWebHook('https://neraroundbot.herokuapp.com/' + bot.token);
 } else {
   bot = new Bot(token, { polling: true });
 }
 
-/**
- * matches /start 
- */
- bot.onText(/\/start/, function (msg, match) {
-   var fromId = msg.chat.id; // get the id, of who is sending the message
-   var message = "Welcome to your AttendanceListBot\n";
-   message += "Create your attendance list using /create [your_list_name] command."
-   bot.sendMessage(fromId, message);
- });
-
- //match /create [list name]
- bot.onText(/\/code/, function (msg, match) {
-   var message = "Your Id = "+msg.chat.id;
-   bot.sendMessage(274298910, message);
- });
-
  //match /create [list name]
  bot.onText(/\/create (.+)/, function (msg, match) {
    FirebaseManager.createList(msg.chat.id, match[1], msg.from);
-
    var message = "Your attendance list was created: "+match[1];
    bot.sendMessage(msg.chat.id, message);
  });
 
- /**
-  * matches @
+  /**
+  * matches @ -- Account ekle
   */
-
   bot.onText(/@/, function (msg, match) {
     if(msg.text.indexOf('@') == 0) {
       bot.sendMessage(msg.chat.id, msg.from.first_name + " " + msg.text + " ekledim ");
@@ -50,26 +31,19 @@ if (process.env.NODE_ENV === 'production') {
   });
 
   /**
-   * matches /out
-   */
-   bot.onText(/\/out/, function (msg, match) {
-     bot.sendMessage(msg.chat.id, msg.from.first_name + match[1] + " cikardim");
-     FirebaseManager.managerParticipants(bot, msg.chat.id, msg.from.first_name, msg.from.last_name, 'remove');
-   });
-
-   /**
-    * matches /add_guest
-    */
-    bot.onText(/\/add_guest (.+)/, function (msg, match) {
-      FirebaseManager.managerGuests(bot, msg.chat.id, match[1], 'add');
-    });
-
-  /**
-    * matches /add_guest
+    * matches D -- Done account
    */
    bot.onText(/D (.+)/, function (msg, match) {
      bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " cikardim");
      FirebaseManager.managerGuests(bot, msg.chat.id, match[1], 'remove');
+   });
+
+  /**
+   * matches /remove -- Listeden cikart
+   */
+   bot.onText(/\/remove/, function (msg, match) {
+     bot.sendMessage(msg.chat.id, msg.from.first_name + match[1] + " removed from the round!");
+     FirebaseManager.managerParticipants(bot, msg.chat.id, msg.from.first_name, msg.from.last_name, 'remove');
    });
 
   /**
@@ -84,11 +58,10 @@ if (process.env.NODE_ENV === 'production') {
     */
     bot.onText(/\/help/, function (msg, match) {
       var fromId = msg.chat.id; // get the id, of who is sending the message
-      var message = msg.chat.id + " To create a new list use: /create [your_list_name] \n";
-      message += "To add your name on the list use: /in \n";
-      message += "To remove your name from the list use: /out \n";
-      message += "To add guest's name on the list use: /add_guest [guest_name] \n";
-      message += "To remove guest's name from the list use: /remove_guest [guest_name] \n";
+      var message = msg.chat.id + " ";
+      message += "To add your account to the round use: @account \n";
+      message += "To remove your account from the round use: /remove @account \n";
+      message += "To say you are Done for the round use: D @account \n";
       message += "To show the list use: /show \n";
       bot.sendMessage(fromId, message);
     });
