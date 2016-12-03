@@ -115,12 +115,19 @@ FirebaseManager.prototype.managerParticipants = function(bot, listId, firstName,
 
 
 FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, action){
-  ref.once('value', function(snapshot){
+  ref.once('value', function(snapshot){        
     var listObj = snapshot.val(),
-        fullname = guestName;
-
+        list = listId.toString(),
+        listReference = 'list_'+list.replace(/-|\s/g,''),
+        fullname = guestName,
+        statusget = listObj[listReference].statusfield;
+   
     if(action === 'add'){
+     if(statusget === 0){
+      bot.sendMessage(listId, 'Round baslamadi');
+     }else{
       addItemOnArray(bot, listId, listObj, fullname);
+     }
     }else{
       removeItemOnArray(bot, listId, listObj, fullname);
     }
