@@ -33,8 +33,8 @@ if (process.env.NODE_ENV === 'production') {
     * matches D -- Done account
    */
    bot.onText(/D (.+)/, function (msg, match) {
-     bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1].split(" ")[1] + " Done!");
-     FirebaseManager.managerGuests(bot, msg.chat.id, match[1], 'remove');
+     bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1].split(" ")[0] + " Done!");
+     FirebaseManager.managerGuests(bot, msg.chat.id, match[1].split(" ")[0], 'remove');
    });
 
   /**
