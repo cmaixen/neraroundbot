@@ -20,10 +20,9 @@ var FirebaseManager = function () {};
  * @param  {[type]} listname [description]
 / * @return {[type]}          [description]
  */
-FirebaseManager.prototype.createList = function (listId, listname, author) {
+FirebaseManager.prototype.createList = function (listId, listname, author, status) {
   //Get current list
   var list = listId.toString(),
-      status = 1,
       listReference = 'list_'+list.replace(/-|\s/g,'');
 
   var listsRef = ref.child(listReference);
