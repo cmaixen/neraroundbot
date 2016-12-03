@@ -55,6 +55,13 @@ if (process.env.NODE_ENV === 'production') {
      var list = FirebaseManager.showList(bot, msg.chat.id);
    });
 
+  /**
+   * matches /showList
+   */
+   bot.onText(/\/notdone/, function (msg, match) {
+     var list = FirebaseManager.showListNotDone(bot, msg.chat.id);
+   });
+
    /**
     * matches /help
     */
