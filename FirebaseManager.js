@@ -112,6 +112,7 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
       removeItemOnArray(bot, listId, listObj, fullname);
     }
 
+   
   });
 };
 
@@ -134,6 +135,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
        count = i;
        //output += ''+(i+1)+'. '+participantsList[i]+'\n';
      }
+   
    
     output = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n' + output ;
     output += '\n0/' + (count+1) ;
@@ -160,9 +162,13 @@ FirebaseManager.prototype.showListCheck = function (bot, listId) {
        count = i;
      }
    
-    output = 'Users NOT Done! \n\n' + output ;
-    output += '\nCount ' + (count+1) ;
-
+    if(participantsList.length <= 0){
+      output = 'No ongoing Round?!';
+    }else{
+      output = 'Users NOT Done! \n\n' + output ;
+      output += '\nCount ' + (count+1) ;
+    }
+    
     bot.sendMessage(listId, output);
   });
 };
