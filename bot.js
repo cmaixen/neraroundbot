@@ -41,7 +41,7 @@ if (process.env.NODE_ENV === 'production') {
   /**
    * matches /remove -- Listeden cikart
    */
-   bot.onText(/\/remove/, function (msg, match) {
+   bot.onText(/\/remove (.+)/, function (msg, match) {
      bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " removed from the round!");
      FirebaseManager.managerGuests(bot, msg.chat.id, match[1], 'remove');
      //FirebaseManager.managerParticipants(bot, msg.chat.id, msg.from.first_name, msg.from.last_name, 'remove');
