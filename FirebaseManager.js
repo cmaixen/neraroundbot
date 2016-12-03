@@ -76,7 +76,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
  
  if(arrParticipants.length <= 0){
     bot.sendMessage(listId, 'Round Closed! \nWelldone!!');
-    //FirebaseManager.createList(msg.chat.id, match[1], msg.from, 0); 
+ 
     //Set datas to list
     listsRef.update({
       participants: arrParticipants
