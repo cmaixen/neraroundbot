@@ -18,7 +18,7 @@ var FirebaseManager = function () {};
  *
  * @param  {[type]} listId   [description]
  * @param  {[type]} listname [description]
- * @return {[type]}          [description]
+/ * @return {[type]}          [description]
  */
 FirebaseManager.prototype.createList = function (listId, listname, author) {
   //Get current list
@@ -47,9 +47,9 @@ function addItemOnArray(bot, listId, participantsList, fullname){
   //Element exists?
   if(arrParticipants.indexOf(fullname) == -1){
     arrParticipants.push(fullname);
-    bot.sendMessage(listId, 'Name was added!');
+    //bot.sendMessage(listId, 'Name was added!');
   }else{
-    bot.sendMessage(listId, 'This name already exists in the list');
+    //bot.sendMessage(listId, 'This name already exists in the list');
     return;
   }
 
@@ -68,9 +68,9 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
 
   if(index > -1){
     arrParticipants.splice(index, 1);
-    bot.sendMessage(listId, 'Name was removed!');
+    //bot.sendMessage(listId, 'Name was removed!');
   }else{
-    bot.sendMessage(listId, 'This name not exists in the list');
+    //bot.sendMessage(listId, 'This name not exists in the list');
     return;
   }
 
@@ -119,12 +119,17 @@ FirebaseManager.prototype.showList = function (bot, listId) {
         listsRef = ref.child(listReference),
         participantsList = listObj[listReference].participants || [],
         listName = listObj[listReference].listName,
+        count = 0,
         output = listName+'\n';
 
      //output
      for(var i=0; i<participantsList.length; i+=1){
-       output += ''+(i+1)+'. '+participantsList[i]+'\n';
+       output += '' +participantsList[i]+'\n';
+       count = i;
+       //output += ''+(i+1)+'. '+participantsList[i]+'\n';
      }
+   
+    output = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n' + '\n' + output + '\n\n0/' + count ;
 
      bot.sendMessage(listId, output);
   });
