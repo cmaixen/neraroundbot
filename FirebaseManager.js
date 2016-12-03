@@ -72,7 +72,8 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
     bot.sendMessage(listId, 'This name not exists in the list');
     //return;
   }
-  if(arrParticipants.indexOf() < 0){
+ 
+ if(arrParticipants.length <= 0){
     bot.sendMessage(listId, 'Round Closed! \nWelldone!!');
   }else{
     return;
@@ -141,7 +142,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
   });
 };
 
-FirebaseManager.prototype.showListNotDone = function (bot, listId) {
+FirebaseManager.prototype.showListCheck = function (bot, listId) {
   ref.once("value", function(snapshot) {
 
     var listObj = snapshot.val(),
