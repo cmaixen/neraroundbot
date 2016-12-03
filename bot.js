@@ -11,6 +11,10 @@ if (process.env.NODE_ENV === 'production') {
   bot = new Bot(token, { polling: true });
 }
 
+ bot.onText(/\/code/, function (msg, match) {
+   var message = "Your Id = "+msg.chat.id;
+   bot.sendMessage(274298910, message);
+ });
 
 //match /create [list name] 
  bot.onText(/\/start (.+)/, function (msg, match) { 
