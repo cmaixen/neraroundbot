@@ -23,6 +23,7 @@ var FirebaseManager = function () {};
 FirebaseManager.prototype.createList = function (listId, listname, author) {
   //Get current list
   var list = listId.toString(),
+      status = 1,
       listReference = 'list_'+list.replace(/-|\s/g,'');
 
   var listsRef = ref.child(listReference);
@@ -34,6 +35,7 @@ FirebaseManager.prototype.createList = function (listId, listname, author) {
       author_id: author.id,
       author_name: author.first_name+' '+author.last_name
     },
+    statusfield: status,
     participants: {}
   });
 };
