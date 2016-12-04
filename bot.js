@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'production') {
 //match /create [list name] 
  bot.onText(/\/start (.+)/, function (msg, match) { 
  FirebaseManager.createList(msg.chat.id, match[1], msg.from, 1); 
- var message = "Drop @'s \nRound started!!";
+ var message = "Drop @'s \nRound started!!" + msg.from;
  bot.sendMessage(msg.chat.id, message); 
   });
 
