@@ -183,7 +183,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
      
       for(var i=0; i<outputListArr.length; i+=1){
         //if (i==0) {
-          outputStr += outputListArr[i];
+          outputStr = outputListArr[i];
           bot.sendMessage(listId, outputStr);
           // FirebaseManager.prototype.sleep (1000);
         //} else {
