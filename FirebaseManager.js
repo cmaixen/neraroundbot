@@ -153,8 +153,8 @@ FirebaseManager.prototype.showList = function (bot, listId) {
      //output
     if (participantsList.length >0) {
       output = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n' ;
-      //bot.sendMessage(listId, output);
-      //output = '';
+      bot.sendMessage(listId, output);
+      output = '';
     } else {
       output = 'Round cancelled!' ;
     }
@@ -169,8 +169,9 @@ FirebaseManager.prototype.showList = function (bot, listId) {
          countforlisting = 0
        }
      }
-   
-    output += '\n' + (count+1) + ' participants' ;
+    
+    bot.sendMessage(listId, output);
+    output = '\n' + (count+1) + ' participants' ;
     bot.sendMessage(listId, output);
   });
 };
