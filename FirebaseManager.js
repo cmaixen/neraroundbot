@@ -173,7 +173,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
         if (i=0) {
           outputStr += outputListArr[i];
         } else if (i=outputListArr.length-1) {
-          outputStr = outputListArr[i] + (count+1) + ' participants';
+          outputStr += outputListArr[i] + (count+1) + ' participants';
         } else {
           outputStr = outputListArr[i];
         }
