@@ -14,11 +14,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 var AdminListArr = AdminList.split("####");
-for(var i=0; i<AdminListArr.length; i+=1){
-  if (AdminListArr[i] == msg.from.id){
-    AdminCheck = 1;
-    }
-}
+
 
 
  bot.onText(/\/code/, function (msg, match) {
@@ -28,6 +24,11 @@ for(var i=0; i<AdminListArr.length; i+=1){
 
 //match /create [list name] 
  bot.onText(/\/start (.+)/, function (msg, match) {
+   for(var i=0; i<AdminListArr.length; i+=1){
+    if (AdminListArr[i] == msg.from.id){
+      AdminCheck = 1;
+      }
+   }
    if (AdminCheck == 1) {
      FirebaseManager.createList(msg.chat.id, match[1], msg.from, 1); 
      var message = "Drop @'s \nRound started!!" + msg.from;
