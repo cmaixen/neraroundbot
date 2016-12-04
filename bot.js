@@ -42,12 +42,11 @@ var AdminListArr = AdminList.split("###");
      } 
    }
    if (AdminCheck == 1) {
-    // FirebaseManager.createList(msg.chat.id, match[1], msg.from, 1); 
-     var message = "Drop @'s \nRound started!!" + msg.from;
+     var message = "Drop @'s \nRound started!!";
      bot.sendMessage(msg.chat.id, message);
 
    } else {
-     bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
+     bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my masters!');
    }
   });
 
