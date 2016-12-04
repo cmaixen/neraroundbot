@@ -146,9 +146,8 @@ FirebaseManager.prototype.showList = function (bot, listId) {
         listName = listObj[listReference].listName,
         count = 0,
         countforlisting = 0,
-        listnumber = 0;
-   
-        outputStr = '';
+        listnumber = 0,   
+        outputStr = '',
         outputListStr = '';
 
      //output
@@ -171,7 +170,14 @@ FirebaseManager.prototype.showList = function (bot, listId) {
       var outputListArr = outputListStr.split("####");
      
       for(var i=0; i<outputListArr.length; i+=1){
-        bot.sendMessage(listId, outputListArr[i]+'\n');       
+        if (i=0) {
+          outputStr += outputListArr[i];
+        } else if (i=outputListArr.length-1) {
+          outputStr = outputListArr[i] + (count+1) + ' participants';
+        } else {
+          outputStr = outputListArr[i];
+        }
+        bot.sendMessage(listId, outputStr +'\n');       
       }
       //output = '\n' + (count+1) + ' participants' ;
       //bot.sendMessage(listId, output);
