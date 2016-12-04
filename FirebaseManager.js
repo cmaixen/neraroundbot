@@ -169,9 +169,9 @@ FirebaseManager.prototype.showList = function (bot, listId) {
 
      //output
     if (participantsList.length >0) {
-     // outputStr = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n' ;
+      outputStr = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n####' ;
       //bot.sendMessage(listId, outputStr);
-      outputStr = '';
+      //outputStr = '';
      
       for(var i=0; i<participantsList.length; i+=1){
         outputListStr += '' +participantsList[i]+'\n';
@@ -184,7 +184,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
           listnumber = 0;
         }
         
-        outputListStr = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n####' + outputListStr ;
+        //outputListStr = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n####' + outputListStr ;
         
       }
      
