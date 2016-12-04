@@ -172,12 +172,12 @@ FirebaseManager.prototype.showList = function (bot, listId) {
       var outputListArr = outputListStr.split("####");
      
       for(var i=0; i<outputListArr.length; i+=1){
-        if (i=0) {
+        if (i==0) {
           outputStr += outputListArr[i];
           bot.sendMessage(listId, outputStr +'\n1-' + outputListArr.length);
-        } else if (i=outputListArr.length-1) {
-          outputStr += outputListArr[i] + (count+1) + ' participants';
-          bot.sendMessage(listId, outputStr +'\n2-' + outputListArr.length);
+        //} else if (i=outputListArr.length-1) {
+          //outputStr += outputListArr[i] + (count+1) + ' participants';
+          //bot.sendMessage(listId, outputStr +'\n2-' + outputListArr.length);
         } else {
           outputStr = outputListArr[i];
           bot.sendMessage(listId, outputStr +'\n3-' + outputListArr.length);
