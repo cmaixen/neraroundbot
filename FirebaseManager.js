@@ -108,8 +108,8 @@ FirebaseManager.prototype.managerParticipants = function(bot, listId, firstName,
       addItemOnArray(bot, listId, listObj, fullname);
     }else{
       removeItemOnArray(bot, listId, listObj, fullname);
-    }
 
+    }
   });
 };
 
@@ -147,20 +147,29 @@ FirebaseManager.prototype.showList = function (bot, listId) {
         participantsList = listObj[listReference].participants || [],
         listName = listObj[listReference].listName,
         count = 0,
+        countforlisting = 0;
         output = '';
 
      //output
+   if (participantsList.length >0) {
+    output = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n' ;
+      bot.sendMessage(listId, output);
+      output = '';
+   }
      for(var i=0; i<participantsList.length; i+=1){
        output += '' +participantsList[i]+'\n';
        count = i;
-       //output += ''+(i+1)+'. '+participantsList[i]+'\n';
+       countforlisting += 1;
+       
+       if (countforlisting >= 20) {
+         bot.sendMessage(listId, output);
+         output = '';
+         countforlisting = 0
+       }
      }
    
-   
-    output = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n' + output ;
     output += '\n0/' + (count+1) ;
-
-     bot.sendMessage(listId, output);
+    bot.sendMessage(listId, output);
   });
 };
 
