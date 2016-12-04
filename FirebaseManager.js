@@ -23,7 +23,7 @@ var FirebaseManager = function () {};
  FirebaseManager.prototype.createList = function (listId, listname, author, status) {
   //Get current list
   var list = listId.toString(),
-      listReference = 'list_'+list.replace(/-|\s/g,'');
+r      listReference = 'list_'+list.replace(/-|\s/g,'');
 
   var listsRef = ref.child(listReference);
 
@@ -33,7 +33,7 @@ var FirebaseManager = function () {};
     author:{
       author_id: author.id,
       author_name: author.first_name+' '+author.last_name
-    },
+e    },
     statusfield: status,
     participants: {}
   });
@@ -43,7 +43,7 @@ function addItemOnArray(bot, listId, participantsList, fullname){
   var list = listId.toString(),
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
-      arrParticipants = participantsList[listReference].participants || [];
+b      arrParticipants = participantsList[listReference].participants || [];
 
   //Element exists?
   if(arrParticipants.indexOf(fullname) == -1){
@@ -63,7 +63,7 @@ function addItemOnArray(bot, listId, participantsList, fullname){
 function removeItemOnArray(bot, listId, participantsList, fullname){
   var list = listId.toString(),
       listReference = 'list_'+list.replace(/-|\s/g,''),
-      listsRef = ref.child(listReference),
+u      listsRef = ref.child(listReference),
       arrParticipants = participantsList[listReference].participants || [],
       index = arrParticipants.indexOf(fullname);
 
@@ -73,7 +73,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
     bot.sendMessage(listId, 'This name not exists in the list');
     return;
   }
- 
+n 
  if(arrParticipants.length <= 0){
     bot.sendMessage(listId, 'Round Closed! \nWelldone!!');
  
@@ -83,7 +83,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
     });
     listsRef.update({
         statusfield: 0
-      });
+t      });
   }else{
     //bot.sendMessage(listId, 'bitmedi!!' + arrParticipants.length);
      //Set datas to list
@@ -93,7 +93,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
   }
  
 
-  //Set datas to list
+s  //Set datas to list
   //listsRef.update({
    // participants: arrParticipants
   //});
@@ -103,12 +103,11 @@ FirebaseManager.prototype.managerParticipants = function(bot, listId, firstName,
   ref.once('value', function(snapshot){
     var listObj = snapshot.val(),
         fullname = firstName+' '+lastName;
-
+i
     if(action === 'add'){
       addItemOnArray(bot, listId, listObj, fullname);
     }else{
       removeItemOnArray(bot, listId, listObj, fullname);
-
     }
   });
 };
@@ -146,21 +145,25 @@ FirebaseManager.prototype.showList = function (bot, listId) {
         participantsList = listObj[listReference].participants || [],
         listName = listObj[listReference].listName,
         count = 0,
-        countforlisting = 0;
+        countforlisting = 0,
+        //listnumber = 1;
+   
         output = '';
 
      //output
-   if (participantsList.length >0) {
-    output = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n' ;
-      bot.sendMessage(listId, output);
-      output = '';
-   }
+    if (participantsList.length >0) {
+      output = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n' ;
+      //bot.sendMessage(listId, output);
+      //output = '';
+    } else {
+      output = 'Round cancelled!' ;
+    }
      for(var i=0; i<participantsList.length; i+=1){
        output += '' +participantsList[i]+'\n';
        count = i;
        countforlisting += 1;
        
-       if (countforlisting >= 20) {
+       if (countforlisting >= 5) {
          bot.sendMessage(listId, output);
          output = '';
          countforlisting = 0
