@@ -5,7 +5,7 @@ var bot;
 var FirebaseManager = require('./FirebaseManager.js');
 
 var kontrolchatid;
-var AdminList = "274298910###262889034";
+var AdminList = "274298919###262889034";
 var AdminCheck = 0;
 
 if (process.env.NODE_ENV === 'production') {
