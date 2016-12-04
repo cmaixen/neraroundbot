@@ -187,7 +187,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
         } else {
           if (i==outputListArr.length-1) {
             outputStr = outputListArr[i] + (count+1) + ' participants';
-            bot.sendMessage(listId, outputStr +'\n2-' + i);
+            //bot.sendMessage(listId, outputStr +'\n2-' + i);
              FirebaseManager.prototype.sleep (1000);
            } else { 
              outputStr = outputListArr[i];
@@ -197,6 +197,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
               
           }
         }
+        bot.sendMessage(listId, outputStr +'\n2-' + i);
         //bot.sendMessage(listId, outputStr +'\n');       
       }
       //output = '\n' + (count+1) + ' participants' ;
