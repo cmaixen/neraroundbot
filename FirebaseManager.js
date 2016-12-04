@@ -157,16 +157,18 @@ FirebaseManager.prototype.showList = function (bot, listId) {
       for(var i=0; i<participantsList.length; i+=1){
         outputListStr += '' +participantsList[i]+'\n';
         count = i;
-        countforlisting += 1;
+        //countforlisting += 1;
         listnumber += 1;
 
         if (listnumber >= 5) {
           outputListStr += '####' +'\n';          
-          countforlisting += 1;
+          //countforlisting += 1;
           listnumber = 0;
         }
       }
      
+      bot.sendMessage(listId, outputStr +'\n');
+/*     
       var outputListArr = outputListStr.split("####");
      
       for(var i=0; i<outputListArr.length; i+=1){
@@ -181,6 +183,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
       }
       //output = '\n' + (count+1) + ' participants' ;
       //bot.sendMessage(listId, output);
+      */
     } else {
       bot.sendMessage(listId, 'Round cancelled!') ;
     }
