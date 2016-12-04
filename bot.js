@@ -54,7 +54,7 @@ if (process.env.NODE_ENV === 'production') {
    * matches /showList
    */
    bot.onText(/\/show/, function (msg, match) {
-     var list = FirebaseManager.showList(bot, msg.chat.id);
+     var list = '5' + FirebaseManager.showList(bot, msg.chat.id);
      bot.sendMessage(msg.chat.id, 'deneme\n');
      bot.sendMessage(msg.chat.id, '1' + list);
      
