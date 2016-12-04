@@ -167,23 +167,26 @@ FirebaseManager.prototype.showList = function (bot, listId) {
         }
       }
      
-      bot.sendMessage(listId, outputListStr +'\n');
-/*     
+      //bot.sendMessage(listId, outputListStr +'\n');
+     
       var outputListArr = outputListStr.split("####");
      
       for(var i=0; i<outputListArr.length; i+=1){
         if (i=0) {
           outputStr += outputListArr[i];
+          bot.sendMessage(listId, outputStr +'\n1');
         } else if (i=outputListArr.length-1) {
           outputStr += outputListArr[i] + (count+1) + ' participants';
+          bot.sendMessage(listId, outputStr +'\n2');
         } else {
           outputStr = outputListArr[i];
+          bot.sendMessage(listId, outputStr +'\n3');
         }
-        bot.sendMessage(listId, outputStr +'\n');       
+        //bot.sendMessage(listId, outputStr +'\n');       
       }
       //output = '\n' + (count+1) + ' participants' ;
       //bot.sendMessage(listId, output);
-      */
+      
     } else {
       bot.sendMessage(listId, 'Round cancelled!') ;
     }
