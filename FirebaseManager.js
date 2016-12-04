@@ -184,8 +184,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
           listnumber = 0;
         }
         
-        //outputListStr = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n####' + outputListStr ;
-        
+        outputListStr += '\n' + (count+1) + ' participants';        
       }
      
      
