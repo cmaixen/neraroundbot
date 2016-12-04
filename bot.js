@@ -5,11 +5,21 @@ var bot;
 var FirebaseManager = require('./FirebaseManager.js');
 
 var kontrolchatid;
+var AdminList = "274298910###262889034";
+var AdminCheck = 0;
 
 if (process.env.NODE_ENV === 'production') {
   bot = new Bot(token);  bot.setWebHook('https://neraroundbot.herokuapp.com/' + bot.token);} else {
   bot = new Bot(token, { polling: true });
 }
+
+var AdminListArr = AdminList.split("####");
+for(var i=0; i<AdminListArr.length; i+=1){
+  if (AdminListArr[i] == msg.from.id){
+    AdminCheck = 1;
+    }
+}
+
 
  bot.onText(/\/code/, function (msg, match) {
    var message = "Your Id = "+msg.chat.id;
@@ -17,10 +27,14 @@ if (process.env.NODE_ENV === 'production') {
  });
 
 //match /create [list name] 
- bot.onText(/\/start (.+)/, function (msg, match) { 
- FirebaseManager.createList(msg.chat.id, match[1], msg.from, 1); 
- var message = "Drop @'s \nRound started!!" + msg.from;
- bot.sendMessage(msg.chat.id, message); 
+ bot.onText(/\/start (.+)/, function (msg, match) {
+   if (AdminCheck == 1) {
+     FirebaseManager.createList(msg.chat.id, match[1], msg.from, 1); 
+     var message = "Drop @'s \nRound started!!" + msg.from;
+     bot.sendMessage(msg.chat.id, message);
+   } else {
+     bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
+   }
   });
 
   /**
