@@ -55,8 +55,13 @@ if (process.env.NODE_ENV === 'production') {
    */
    bot.onText(/\/show/, function (msg, match) {
      var list = FirebaseManager.showList(bot, msg.chat.id);
-     bot.sendMessage(msg.chat.id, 'deneme\n');
-     bot.sendMessage(msg.chat.id, '1' + list[0]);
+     
+      var items = Object.keys(list);
+      items.forEach(function(item) {
+         bot.sendMessage(msg.chat.id, item + '=' + list[item]);
+      });
+     //bot.sendMessage(msg.chat.id, 'deneme\n');
+     //bot.sendMessage(msg.chat.id, '1' + list[0]);
      
      /*
            var outputListArr1 = list.split("####"),
