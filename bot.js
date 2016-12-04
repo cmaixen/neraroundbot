@@ -55,60 +55,27 @@ var AdminListArr = AdminList.split("###");
   * matches @ -- Account ekle
   */
   bot.onText(/@/, function (msg, match) {
-    for(var i=0; i<AdminListArr.length; i+=1){
-        if (AdminListArr[i] == msg.from.id){
-          AdminCheck = 1;
-         } else {
-          AdminCheck = 0;
-         } 
-       }
-       if (AdminCheck == 1) {
-        if(msg.text.indexOf('@') == 0) {
-          //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + msg.text + " Added!");
-          FirebaseManager.managerGuests(bot, msg.chat.id, msg.text, 'add');
-        }
-   } else {
-     bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
-   }
+    if(msg.text.indexOf('@') == 0) {
+      //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + msg.text + " Added!");
+      FirebaseManager.managerGuests(bot, msg.chat.id, msg.text, 'add');
+    }
   });
 
   /**
     * matches D -- Done account
    */
    bot.onText(/D (.+)/, function (msg, match) {
-     for(var i=0; i<AdminListArr.length; i+=1){
-        if (AdminListArr[i] == msg.from.id){
-          AdminCheck = 1;
-         } else {
-          AdminCheck = 0;
-         } 
-       }
-       if (AdminCheck == 1) {
-         //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1].split(" ")[0] + " Done!");
-         FirebaseManager.managerGuests(bot, msg.chat.id, match[1].split(" ")[0], 'remove');
-       } else {
-         bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
-       }
+     //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1].split(" ")[0] + " Done!");
+     FirebaseManager.managerGuests(bot, msg.chat.id, match[1].split(" ")[0], 'remove');
    });
 
   /**
    * matches /remove -- Listeden cikart
    */
    bot.onText(/Remove! (.+)/, function (msg, match) {
-     for(var i=0; i<AdminListArr.length; i+=1){
-        if (AdminListArr[i] == msg.from.id){
-          AdminCheck = 1;
-         } else {
-          AdminCheck = 0;
-         } 
-       }
-       if (AdminCheck == 1) {
-         //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " removed from the round!");
-         FirebaseManager.managerGuests(bot, msg.chat.id, match[1], 'remove');
-         //FirebaseManager.managerParticipants(bot, msg.chat.id, msg.from.first_name, msg.from.last_name, 'remove');
-       } else {
-         bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
-       }
+     //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " removed from the round!");
+     FirebaseManager.managerGuests(bot, msg.chat.id, match[1], 'remove');
+     //FirebaseManager.managerParticipants(bot, msg.chat.id, msg.from.first_name, msg.from.last_name, 'remove');
    });
 
   /**
