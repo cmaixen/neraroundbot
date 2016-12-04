@@ -27,12 +27,14 @@ var AdminListArr = AdminList.split("###");
    for(var i=0; i<AdminListArr.length; i+=1){
     if (AdminListArr[i] == msg.from.id){
       AdminCheck = 1;
+      bot.sendMessage(msg.chat.id, i + ' ve ' + msg.from.id + ' ve ' + AdminListArr[i]);
       }
    }
    if (AdminCheck == 1) {
-     FirebaseManager.createList(msg.chat.id, match[1], msg.from, 1); 
+    // FirebaseManager.createList(msg.chat.id, match[1], msg.from, 1); 
      var message = "Drop @'s \nRound started!!" + msg.from;
-     bot.sendMessage(msg.chat.id, message);
+    // bot.sendMessage(msg.chat.id, message);
+     AdminCheck = 0;
    } else {
      bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
    }
