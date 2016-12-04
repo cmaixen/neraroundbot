@@ -136,7 +136,7 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
 
 FirebaseManager.prototype.sleep = function (milliseconds) {
   var start = new Date().getTime();
-  for (var i = 0; i < 1e4; i++) {
+  for (var i = 0; i < 1e5; i++) {
     if ((new Date().getTime() - start) > milliseconds){
       break;
     }
@@ -183,14 +183,16 @@ FirebaseManager.prototype.showList = function (bot, listId) {
         if (i==0) {
           outputStr += outputListArr[i];
           bot.sendMessage(listId, outputStr +'\n1-' + i);
+           FirebaseManager.prototype.sleep (1000);
         } else {
           if (i==outputListArr.length-1) {
             outputStr = outputListArr[i] + (count+1) + ' participants';
             bot.sendMessage(listId, outputStr +'\n2-' + i);
+             FirebaseManager.prototype.sleep (1000);
            } else { 
              outputStr = outputListArr[i];
              bot.sendMessage(listId, outputStr +'\n3-' + i);
-             FirebaseManager.prototype.sleep (1000)
+             FirebaseManager.prototype.sleep (1000);
              
               
           }
