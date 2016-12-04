@@ -113,7 +113,6 @@ FirebaseManager.prototype.managerParticipants = function(bot, listId, firstName,
   });
 };
 
-
 FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, action){
   ref.once('value', function(snapshot){        
     var listObj = snapshot.val(),
@@ -168,7 +167,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
        }
      }
    
-    output += '\n0/' + (count+1) ;
+    output += '\n' + (count+1) + ' participants' ;
     bot.sendMessage(listId, output);
   });
 };
