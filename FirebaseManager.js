@@ -197,7 +197,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
               
           }
         }
-        bot.sendMessage(listId, outputStr +'\n2-' + i);
+        bot.sendMessage(listId, outputStr +'\n2-');
         //bot.sendMessage(listId, outputStr +'\n');       
       }
       //output = '\n' + (count+1) + ' participants' ;
