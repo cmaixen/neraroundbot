@@ -159,10 +159,12 @@ FirebaseManager.prototype.showList = function (bot, listId) {
         outputListStr += '' +participantsList[i]+'\n';
         count = i;
         countforlisting += 1;
+        listnumber += 1;
 
-        if (countforlisting >= 5) {
+        if (listnumber >= 5) {
           outputListStr += '####' +'\n';          
           countforlisting += 1;
+          listnumber = 0;
         }
       }
      
