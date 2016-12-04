@@ -146,30 +146,33 @@ FirebaseManager.prototype.showList = function (bot, listId) {
         listName = listObj[listReference].listName,
         count = 0,
         countforlisting = 0,
-        //listnumber = 1;
+        listnumber = 0;
    
-        output = '';
+        outputStr = '';
+        outputListStr = '';
 
      //output
     if (participantsList.length >0) {
-      output = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n' ;
-      //bot.sendMessage(listId, output);
-      //output = '';
+      outputStr = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n' ;
+      
       for(var i=0; i<participantsList.length; i+=1){
-        output += '' +participantsList[i]+'\n';
+        outputListStr += '' +participantsList[i]+'\n';
         count = i;
         countforlisting += 1;
 
         if (countforlisting >= 5) {
-          bot.sendMessage(listId, output);
-          output = '';
-          countforlisting = 0
+          outputListStr += '####' +'\n';          
+          countforlisting += 1;
         }
       }
      
-     bot.sendMessage(listId, output + '\n' + (count+1) + ' participants');
-     //output = '\n' + (count+1) + ' participants' ;
-     //bot.sendMessage(listId, output);
+      var outputListArr = outputListStr.split("####");
+     
+      for(var i=0; i<outputListArr.length; i+=1){
+        bot.sendMessage(listId, outputListArr[i]+'\n');       
+      }
+      //output = '\n' + (count+1) + ' participants' ;
+      //bot.sendMessage(listId, output);
     } else {
       bot.sendMessage(listId, 'Round cancelled!') ;
     }
