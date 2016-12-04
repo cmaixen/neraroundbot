@@ -170,6 +170,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
       //bot.sendMessage(listId, outputListStr +'\n');
      
       var outputListArr = outputListStr.split("####");
+      var start = new Date().getTime();
      
       for(var i=0; i<outputListArr.length; i+=1){
         if (i==0) {
@@ -182,6 +183,14 @@ FirebaseManager.prototype.showList = function (bot, listId) {
            } else { 
              outputStr = outputListArr[i];
              bot.sendMessage(listId, outputStr +'\n3-' + i);
+             //function sleep(milliseconds) {
+             
+              for (var i = 0; i < 1e7; i++) {
+                if ((new Date().getTime() - start) > 1000){
+                  break;
+                }
+              }
+          //  }
           }
         }
         //bot.sendMessage(listId, outputStr +'\n');       
