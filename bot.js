@@ -43,6 +43,7 @@ var AdminListArr = AdminList.split("###");
    }
    if (AdminCheck == 1) {
      var message = "Drop @'s \nRound started!!";
+     FirebaseManager.createList(msg.chat.id, match[1], msg.from, 1);
      bot.sendMessage(msg.chat.id, message);
 
    } else {
