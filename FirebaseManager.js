@@ -163,7 +163,9 @@ FirebaseManager.prototype.showList = function (bot, listId) {
      //output
     if (participantsList.length >0) {
       outputStr = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n' ;
-      
+      bot.sendMessage(listId, outputStr);
+      outputStr = '';
+     
       for(var i=0; i<participantsList.length; i+=1){
         outputListStr += '' +participantsList[i]+'\n';
         count = i;
@@ -172,7 +174,6 @@ FirebaseManager.prototype.showList = function (bot, listId) {
 
         if (listnumber >= 5) {
           outputListStr += '####' +'\n';          
-          //countforlisting += 1;
           listnumber = 0;
         }
       }
@@ -181,28 +182,22 @@ FirebaseManager.prototype.showList = function (bot, listId) {
       var outputListArr = outputListStr.split("####");
      
       for(var i=0; i<outputListArr.length; i+=1){
-        if (i==0) {
+        //if (i==0) {
           outputStr += outputListArr[i];
-          bot.sendMessage(listId, outputStr +'\n1-' + i);
+          bot.sendMessage(listId, outputStr);
           // FirebaseManager.prototype.sleep (1000);
-        } else {
-          if (i==outputListArr.length-1) {
-            outputStr = outputListArr[i] + (count+1) + ' participants';
-            bot.sendMessage(listId, outputStr +'\n2-' + i);
+        //} else {
+          //if (i==outputListArr.length-1) {
+          //  outputStr = outputListArr[i] + (count+1) + ' participants';
+          //  bot.sendMessage(listId, outputStr);
             // FirebaseManager.prototype.sleep (1000);
-           } else { 
-             outputStr = outputListArr[i];
-             bot.sendMessage(listId, outputStr +'\n3-' + i);
-            // FirebaseManager.prototype.sleep (1000);
-             
-              
-          }
-        }
-        //bot.sendMessage(listId, outputStr +'\n2-');
-        //bot.sendMessage(listId, outputStr +'\n');       
-      }
-      //output = '\n' + (count+1) + ' participants' ;
-      //bot.sendMessage(listId, output);   
+          // } else { 
+           //  outputStr = outputListArr[i];
+           //  bot.sendMessage(listId, outputStr);
+            // FirebaseManager.prototype.sleep (1000);              
+         // }
+       // }      
+      }  
     } else {
       bot.sendMessage(listId, 'Round cancelled!') ;
     }
