@@ -130,7 +130,7 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
       removeItemOnArray(bot, listId, listObj, fullname);
     }
 
-   
+  
   });
 };
 
@@ -153,26 +153,28 @@ FirebaseManager.prototype.showList = function (bot, listId) {
      //output
     if (participantsList.length >0) {
       output = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n' ;
-      bot.sendMessage(listId, output);
-      output = '';
+      //bot.sendMessage(listId, output);
+      //output = '';
+      for(var i=0; i<participantsList.length; i+=1){
+        output += '' +participantsList[i]+'\n';
+        count = i;
+        countforlisting += 1;
+
+        if (countforlisting >= 5) {
+          bot.sendMessage(listId, output);
+          output = '';
+          countforlisting = 0
+        }
+      }
+     
+     bot.sendMessage(listId, output + '\n' + (count+1) + ' participants');
+     //output = '\n' + (count+1) + ' participants' ;
+     //bot.sendMessage(listId, output);
     } else {
-      output = 'Round cancelled!' ;
+      bot.sendMessage(listId, 'Round cancelled!') ;
     }
-     for(var i=0; i<participantsList.length; i+=1){
-       output += '' +participantsList[i]+'\n';
-       count = i;
-       countforlisting += 1;
-       
-       if (countforlisting >= 5) {
-         bot.sendMessage(listId, output);
-         output = '';
-         countforlisting = 0
-       }
-     }
+        
     
-    bot.sendMessage(listId, output);
-    output = '\n' + (count+1) + ' participants' ;
-    bot.sendMessage(listId, output);
   });
 };
 
