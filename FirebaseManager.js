@@ -23,7 +23,7 @@ var FirebaseManager = function () {};
  FirebaseManager.prototype.createList = function (listId, listname, author, status) {
   //Get current list
   var list = listId.toString(),
-r      listReference = 'list_'+list.replace(/-|\s/g,'');
+      listReference = 'list_'+list.replace(/-|\s/g,'');
 
   var listsRef = ref.child(listReference);
 
@@ -33,7 +33,7 @@ r      listReference = 'list_'+list.replace(/-|\s/g,'');
     author:{
       author_id: author.id,
       author_name: author.first_name+' '+author.last_name
-e    },
+    },
     statusfield: status,
     participants: {}
   });
@@ -43,7 +43,7 @@ function addItemOnArray(bot, listId, participantsList, fullname){
   var list = listId.toString(),
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
-b      arrParticipants = participantsList[listReference].participants || [];
+      arrParticipants = participantsList[listReference].participants || [];
 
   //Element exists?
   if(arrParticipants.indexOf(fullname) == -1){
@@ -63,7 +63,7 @@ b      arrParticipants = participantsList[listReference].participants || [];
 function removeItemOnArray(bot, listId, participantsList, fullname){
   var list = listId.toString(),
       listReference = 'list_'+list.replace(/-|\s/g,''),
-u      listsRef = ref.child(listReference),
+      listsRef = ref.child(listReference),
       arrParticipants = participantsList[listReference].participants || [],
       index = arrParticipants.indexOf(fullname);
 
@@ -73,7 +73,7 @@ u      listsRef = ref.child(listReference),
     bot.sendMessage(listId, 'This name not exists in the list');
     return;
   }
-n 
+ 
  if(arrParticipants.length <= 0){
     bot.sendMessage(listId, 'Round Closed! \nWelldone!!');
  
@@ -83,7 +83,7 @@ n
     });
     listsRef.update({
         statusfield: 0
-t      });
+      });
   }else{
     //bot.sendMessage(listId, 'bitmedi!!' + arrParticipants.length);
      //Set datas to list
@@ -93,7 +93,7 @@ t      });
   }
  
 
-s  //Set datas to list
+  //Set datas to list
   //listsRef.update({
    // participants: arrParticipants
   //});
@@ -103,7 +103,7 @@ FirebaseManager.prototype.managerParticipants = function(bot, listId, firstName,
   ref.once('value', function(snapshot){
     var listObj = snapshot.val(),
         fullname = firstName+' '+lastName;
-i
+
     if(action === 'add'){
       addItemOnArray(bot, listId, listObj, fullname);
     }else{
