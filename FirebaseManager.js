@@ -184,9 +184,9 @@ FirebaseManager.prototype.showList = function (bot, listId) {
           listnumber = 0;
         }
         
-        outputListStr += '\n' + (count+1) + ' participants';        
+             
       }
-     
+      outputListStr += '\n' + (count+1) + ' participants';   
      
       var outputListArr = outputListStr.split("####");
 
