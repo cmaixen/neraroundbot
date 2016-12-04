@@ -130,10 +130,20 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
       removeItemOnArray(bot, listId, listObj, fullname);
     }
 
-   
+  
   });
 };
 
+/*
+FirebaseManager.prototype.sleep = function (milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e5; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+*/
 
 FirebaseManager.prototype.showList = function (bot, listId) {
   ref.once("value", function(snapshot) {
@@ -145,34 +155,54 @@ FirebaseManager.prototype.showList = function (bot, listId) {
         participantsList = listObj[listReference].participants || [],
         listName = listObj[listReference].listName,
         count = 0,
-        countforlisting = 0,
-        //listnumber = 1;
-   
-        output = '';
+        //countforlisting = 0,
+        listnumber = 0,   
+        outputStr = '',
+        outputListStr = '';
 
      //output
     if (participantsList.length >0) {
-      output = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n' ;
-      bot.sendMessage(listId, output);
-      output = '';
+      outputStr = 'Like & Comment RECENT \nCWD with @ \nGO!!! \n\n' ;
+      bot.sendMessage(listId, outputStr);
+      outputStr = '';
+     
+      for(var i=0; i<participantsList.length; i+=1){
+        outputListStr += '' +participantsList[i]+'\n';
+        count = i;
+        //countforlisting += 1;
+        listnumber += 1;
+
+        if (listnumber >= 5) {
+          outputListStr += '####' +'\n';          
+          listnumber = 0;
+        }
+      }
+     
+     
+      var outputListArr = outputListStr.split("####");
+     
+      for(var i=0; i<outputListArr.length; i+=1){
+        //if (i==0) {
+          outputStr = outputListArr[i];
+          bot.sendMessage(listId, outputStr);
+          // FirebaseManager.prototype.sleep (1000);
+        //} else {
+          //if (i==outputListArr.length-1) {
+          //  outputStr = outputListArr[i] + (count+1) + ' participants';
+          //  bot.sendMessage(listId, outputStr);
+            // FirebaseManager.prototype.sleep (1000);
+          // } else { 
+           //  outputStr = outputListArr[i];
+           //  bot.sendMessage(listId, outputStr);
+            // FirebaseManager.prototype.sleep (1000);              
+         // }
+       // }      
+      }  
     } else {
-      output = 'Round cancelled!' ;
+      bot.sendMessage(listId, 'Round cancelled!') ;
     }
-     for(var i=0; i<participantsList.length; i+=1){
-       output += '' +participantsList[i]+'\n';
-       count = i;
-       countforlisting += 1;
-       
-       if (countforlisting >= 5) {
-         bot.sendMessage(listId, output);
-         output = '';
-         countforlisting = 0
-       }
-     }
+        
     
-    bot.sendMessage(listId, output);
-    output = '\n' + (count+1) + ' participants' ;
-    bot.sendMessage(listId, output);
   });
 };
 
