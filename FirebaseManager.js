@@ -175,7 +175,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
         }
       }
      
-     return outputListStr;
+    // return outputListStr;
       bot.sendMessage(listId, outputListStr +'\n');
 /*     
       var outputListArr = outputListStr.split("####");
