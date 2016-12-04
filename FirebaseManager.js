@@ -2,6 +2,7 @@
  * Firebase auth'
  */
 var firebase = require("firebase");
+     var Promise = require('bluebird');
 
 firebase.initializeApp({
  serviceAccount: "neraroundbot-306b7c420e67.json",
@@ -145,6 +146,12 @@ FirebaseManager.prototype.sleep = function (milliseconds) {
 }
 */
 
+FirebaseManager.prototype.Pro = function sendMessages(bot, chatId, messages) {
+    return Promise.mapSeries(messages, function(message) {
+        return bot.sendMessage(chatId, message);
+    });
+}
+
 FirebaseManager.prototype.showList = function (bot, listId) {
   ref.once("value", function(snapshot) {
 
@@ -180,11 +187,20 @@ FirebaseManager.prototype.showList = function (bot, listId) {
      
      
       var outputListArr = outputListStr.split("####");
+
+
+
+
+// example usage
+FirebaseManager.prototype.Pro(bot, listId, outputListArr)
+    .then(function() {
+        //bot.sendMessage(listId, outputListArr);
+    });
      
-      for(var i=0; i<outputListArr.length; i+=1){
+     // for(var i=0; i<outputListArr.length; i+=1){
         //if (i==0) {
-          outputStr = outputListArr[i];
-          bot.sendMessage(listId, outputStr);
+         // outputStr = outputListArr[i];
+         // bot.sendMessage(listId, outputStr);
           // FirebaseManager.prototype.sleep (1000);
         //} else {
           //if (i==outputListArr.length-1) {
@@ -197,7 +213,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
             // FirebaseManager.prototype.sleep (1000);              
          // }
        // }      
-      }  
+     // }  
     } else {
       bot.sendMessage(listId, 'Round cancelled!') ;
     }
