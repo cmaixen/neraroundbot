@@ -1,4 +1,6 @@
 
+const FirebaseManager = require('./FirebaseManager2.js');
+var initsch; 
 
 const Telegram = require('telegram-bot-bootstrap')
 //const TelegramBaseController = Telegram.TelegramBaseController
@@ -6,48 +8,80 @@ const Telegram = require('telegram-bot-bootstrap')
 const api = new Telegram('290603420:AAFQAW_RMCsEMyq_MH68lYBJnqsMUOXwPCM')
 const schedule = require('node-schedule');
 
-const ControlManager = require('./Control.js');
+var getDateTime = require('./getDateTime.js');
+var outhControl = require('./outhControl.js');
+var roundtimeControl = require('./roundtimeControl.js');
+var getroundchats = require('./getroundchats.js');
+var Promise = require('bluebird');
 
-//console.log(ControlClass.listCheck(274298910))
 
+//var showlist = require('./showlist.js');
 
-//Schedule Islerin Tanımlanması 
-//        console.log(make + ', ' + RoundTime + ', ' + RoundInt);
+//console.log(getroundchats)
+var roundchatId = new getroundchats;
+
+var items = Object.keys(roundchatId);
+//RoundsChats Time Control
 
 /** 
-for (var make in jsonObject.Rounds) {
-    for (var RoundSira in jsonObject.Rounds[make]) {
-        var RoundInt = jsonObject.Rounds[make][RoundSira].RoundInt,
-        RoundTime = jsonObject.Rounds[make][RoundSira].RoundTime;
-    }
-}
-
-const ruleTime = new schedule.RecurrenceRule();
-
-for (var make in jsonObject.Rounds) {
-    for (var RoundSira in jsonObject.Rounds[make]) {
-        var RoundInt = jsonObject.Rounds[make][RoundSira].RoundInt,
-        RoundTime = jsonObject.Rounds[make][RoundSira].RoundTime;
-
-        ruleTime.hour = RoundTime;
-
-        console.log ( ruleTime)
-        var j = schedule.scheduleJob(ruleTime, function(){
-                api.sendMessage(274298910,"time")
-                return;
-        });
-
-    }
-}
-
- api.sendMessage(274298910,"time")
-*/
-
 //60 Sn de bir Kontrollü interval yapının kurgulanması
 setInterval(function(){
-console.log(ControlManager.getDateTime())
 
-},5000);
+    items.forEach(function(item) {
+
+        if (roundtimeControl(roundchatId[item])) {
+            //var RoundFrom = [author_id=274298910, first_name="@RoundSensei"," "] 
+            FirebaseManager.createList(roundchatId[item], "Round", "RoundFrom", 1);
+            api.sendMessage(roundchatId[item],"Drop @'s \nRound started!!");
+            //console.log("Ok")
+        }   
+            //console.log(item + '=' + roundchatId[item]);
+    });
+
+},60000);
+
+
+*/
+
+
+FirebaseManager.showListCheck(-1001089348367, function(roundchatlist) {
+    api.sendMessage(-1001089348367,"Round Eleman Listesi!");
+
+    var ritems = Object.keys(roundchatlist);
+    console.log("İç Toplam = " + Object.keys(roundchatlist).length)
+
+    sendmsg(-1001089348367,roundchatlist)
+ //   ritems.forEach(function(item) {
+ //       api.sendMessage(-1001089348367,roundchatlist[item], function() {
+
+//        });
+//        console.log(roundchatlist[item]);
+
+
+ //   });
+}) 
+
+function sendmsg(chatId, messages) {
+    return Promise.mapSeries(messages, function(message) {
+        return api.sendMessage(chatId,message);
+    });
+}
+  
+
+
+
+//console.log(roundchatlist.length)
+/** 
+var ritems = Object.keys(roundchatlist);
+    ritems.forEach(function(item) {
+        api.sendMessage(-1001089348367,roundchatlist[item]);
+        console.log(roundchatlist[item]);
+
+    });
+
+*/
+
+module.exports = initsch;
 
 
 
