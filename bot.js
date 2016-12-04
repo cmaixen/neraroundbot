@@ -60,7 +60,7 @@ if (process.env.NODE_ENV === 'production') {
       items.forEach(function(item) {
          bot.sendMessage(msg.chat.id, item + '=' + list[item]);
       });
-     //bot.sendMessage(msg.chat.id, 'deneme\n');
+     bot.sendMessage(msg.chat.id, 'deneme\n');
      //bot.sendMessage(msg.chat.id, '1' + list[0]);
      
      /*
