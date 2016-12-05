@@ -13,35 +13,21 @@ if (process.env.NODE_ENV === 'production') {
   bot = new Bot(token, { polling: true });
 }
 
-///var AdminListArr = AdminList.split("###");
-//var AdminListArr = AdminList.split("###");
-
-
  bot.onText(/\/code/, function (msg, match) {
    if(AdminList.indexOf(msg.from.id) >= 0) {
-     var message = "Chat Id = "+msg.chat.id + "\nYour ID =" +  msg.from.id;
+     var message = "Chat Id = "+msg.chat.id + "\nYour ID = " +  msg.from.id;
      bot.sendMessage(msg.chat.id, message);
    } else {
-    // bot.sendMessage(msg.chat.id, 'ID var mi\n' + AdminListArr.indexOf(msg.from.id));
-    // bot.sendMessage(msg.chat.id, 'ID\n' + msg.from.id + ' ve arr: ' + AdminListArr[1]);
      bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
    }
  });
 
 //match /create [list name] 
  bot.onText(/\/start (.+)/, function (msg, match) {
-   for(var i=0; i<AdminListArr.length; i+=1){
-    if (AdminListArr[i] == msg.from.id){
-      AdminCheck = 1;
-     } else {
-      AdminCheck = 0;
-     } 
-   }
-   if (AdminCheck == 1) {
+   if(AdminList.indexOf(msg.from.id) >= 0) {
      var message = "Drop @'s \nRound started!!";
      FirebaseManager.createList(msg.chat.id, match[1], msg.from, 1);
      bot.sendMessage(msg.chat.id, message);
-
    } else {
      bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my masters!');
    }
@@ -78,36 +64,22 @@ if (process.env.NODE_ENV === 'production') {
    * matches /showList
    */
    bot.onText(/\/show/, function (msg, match) {
-     for(var i=0; i<AdminListArr.length; i+=1){
-        if (AdminListArr[i] == msg.from.id){
-          AdminCheck = 1;
-         } else {
-          AdminCheck = 0;
-         } 
-       }
-       if (AdminCheck == 1) {
-         var list = FirebaseManager.showList(bot, msg.chat.id);
-       } else {
-         bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
-       }
+   if(AdminList.indexOf(msg.from.id) >= 0) {
+       var list = FirebaseManager.showList(bot, msg.chat.id);
+     } else {
+       bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
+     }
    });
 
   /**
    * matches /showList
    */
    bot.onText(/\/check/, function (msg, match) {
-     for(var i=0; i<AdminListArr.length; i+=1){
-        if (AdminListArr[i] == msg.from.id){
-          AdminCheck = 1;
-         } else {
-          AdminCheck = 0;
-         } 
-       }
-       if (AdminCheck == 1) {
-         var list = FirebaseManager.showListCheck(bot, msg.chat.id);
-       } else {
-         bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
-       }
+     if(AdminList.indexOf(msg.from.id) >= 0) {
+       var list = FirebaseManager.showListCheck(bot, msg.chat.id);
+     } else {
+       bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
+     }
    });
 
    /**
@@ -115,12 +87,13 @@ if (process.env.NODE_ENV === 'production') {
     */
     bot.onText(/\/help/, function (msg, match) {
       var fromId = msg.chat.id; // get the id, of who is sending the message
-      var message = msg.chat.id + " ";
-      message += "To add your account to the round use: @account \n";
-      message += "To remove your account from the round use: /remove @account \n";
-      message += "To say you are Done for the round use: D @account \n";
-      message += "To show the list use: /show \n";
-      message += "To show the list of users NOT Done use: /check \n";
+      var message = "Hello! I'm RoundSensei\n I'm a round bot to host your rounds created by my masters @arkns & @neskirimli \n";
+      message += "\nHere is some info about what can you do with me :)\n\n";
+      message += "use: @account -- To add your account to the round \n";
+      message += "use: /remove! @account -- To remove your account from the round \n";
+      message += "use: D @account -- To say you are Done for the round \n";
+      message += "use: /show -- To show the list \n";
+      message += "use: /check -- To show the list of users NOT Done \n";
       bot.sendMessage(fromId, message);
     });
 
