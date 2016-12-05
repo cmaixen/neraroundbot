@@ -17,20 +17,12 @@ var AdminListArr = AdminList.split("###");
 
 
  bot.onText(/\/code/, function (msg, match) {
-/*   for(var i=0; i<AdminListArr.length; i+=1){
-    if (AdminListArr[i] == msg.from.id){
-      AdminCheck = 1;
-     } else {
-      AdminCheck = 0;
-     } 
-   }
-   if (AdminCheck == 1) {
-*/
+   if(AdminListArr.indexOf(msg.from.id) >= 0) {
      var message = "Chat Id = "+msg.chat.id + "\nYour ID =" +  msg.from.id;
      bot.sendMessage(msg.chat.id, message);
-//   } else {
-//     bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
-//   }
+   } else {
+     bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
+   }
  });
 
 //match /create [list name] 
