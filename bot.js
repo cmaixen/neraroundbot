@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
 
 //match /create [list name] 
  bot.onText(/\/start (.+)/, function (msg, match) {
-   if(outhControl) {
+   if(outhControl(msg.chat.id)) {
      if(AdminList.indexOf(msg.from.id) >= 0) {
        var message = "Drop @'s \nRound started!!";
        FirebaseManager.createList(msg.chat.id, match[1], msg.from, 1);
@@ -80,7 +80,7 @@ if (process.env.NODE_ENV === 'production') {
    * matches /showList
    */
    bot.onText(/\/show/, function (msg, match) {
-   if(var a=outhControl) {
+   if(outhControl(msg.chat.id)) {
      if(AdminList.indexOf(msg.from.id) >= 0) {
          var list = FirebaseManager.showList(bot, msg.chat.id);
        } else {
