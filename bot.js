@@ -21,6 +21,7 @@ var AdminListArr = AdminList.split("###");
      var message = "Chat Id = "+msg.chat.id + "\nYour ID =" +  msg.from.id;
      bot.sendMessage(msg.chat.id, message);
    } else {
+     bot.sendMessage(msg.chat.id, 'ID var mi\n' + AdminListArr.indexOf(msg.from.id));
      bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
    }
  });
