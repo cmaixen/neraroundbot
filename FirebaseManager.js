@@ -123,7 +123,7 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
    
     if(action === 'add'){
      if(statusget === 0){
-      bot.sendMessage(listId, 'Round baslamadi');
+      bot.sendMessage(listId, 'Round hasnt started yet!');
      }else{
       addItemOnArray(bot, listId, listObj, fullname);
      }
