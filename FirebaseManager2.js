@@ -177,7 +177,7 @@ FirebaseManager.prototype.showListCheck = function (listId, callback) {
         //console.log(item + '=' + participantsList[item]);
         output += '' +participantsList[item]+'\n';
         i=i+1;
-        if (i>2) {
+        if (i>5) {
             //console.log(i + " " + output)
             showroundList.push(output);
             output='';

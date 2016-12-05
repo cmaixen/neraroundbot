@@ -45,20 +45,11 @@ setInterval(function(){
 
 
 FirebaseManager.showListCheck(-1001089348367, function(roundchatlist) {
-    api.sendMessage(-1001089348367,"Round Eleman Listesi!");
+    api.sendMessage(-1001089348367,"Like & Comment Recent! \nCWD @account \nGO!!! ");
 
-    var ritems = Object.keys(roundchatlist);
-    console.log("İç Toplam = " + Object.keys(roundchatlist).length)
-
+    //var ritems = Object.keys(roundchatlist);
+    //console.log("İç Toplam = " + Object.keys(roundchatlist).length)
     sendmsg(-1001089348367,roundchatlist)
- //   ritems.forEach(function(item) {
- //       api.sendMessage(-1001089348367,roundchatlist[item], function() {
-
-//        });
-//        console.log(roundchatlist[item]);
-
-
- //   });
 }) 
 
 function sendmsg(chatId, messages) {
