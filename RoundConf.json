@@ -2,21 +2,21 @@
     "Rounds": {
         "274298910": [
             {"RoundSira":1, "RoundTime":"10:00", "RoundInt":10},
-            {"RoundSira":1, "RoundTime":"16:50", "RoundInt":20},
-            {"RoundSira":1, "RoundTime":"19:20", "RoundInt":30}
+            {"RoundSira":1, "RoundTime":"16:50", "RoundInt":10},
+            {"RoundSira":1, "RoundTime":"19:20", "RoundInt":10}
         ],
         "-1001089348367": [
-            {"RoundSira":1, "RoundTime":"19:21", "RoundInt":40},
-            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":50},
-            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":50},
-            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":50},
-            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":50},
-            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":50},
-            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":50},
-            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":50},
-            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":50},
-            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":50},
-            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":50}
+            {"RoundSira":1, "RoundTime":"19:21", "RoundInt":10},
+            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":10},
+            {"RoundSira":1, "RoundTime":"21:20", "RoundInt":10},
+            {"RoundSira":1, "RoundTime":"21:35", "RoundInt":10},
+            {"RoundSira":1, "RoundTime":"22:05", "RoundInt":10},
+            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":10},
+            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":10},
+            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":10},
+            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":10},
+            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":10},
+            {"RoundSira":1, "RoundTime":"10:00", "RoundInt":10}
         ]
     }
 }
