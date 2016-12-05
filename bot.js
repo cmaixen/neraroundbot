@@ -13,16 +13,17 @@ if (process.env.NODE_ENV === 'production') {
   bot = new Bot(token, { polling: true });
 }
 
-var AdminListArr = AdminList.split("###");
+///var AdminListArr = AdminList.split("###");
+//var AdminListArr = AdminList.split("###");
 
 
  bot.onText(/\/code/, function (msg, match) {
-   if(AdminListArr.indexOf(msg.from.id) >= 0) {
+   if(AdminList.indexOf(msg.from.id) >= 0) {
      var message = "Chat Id = "+msg.chat.id + "\nYour ID =" +  msg.from.id;
      bot.sendMessage(msg.chat.id, message);
    } else {
-     bot.sendMessage(msg.chat.id, 'ID var mi\n' + AdminListArr.indexOf(msg.from.id));
-     bot.sendMessage(msg.chat.id, 'ID\n' + msg.from.id + ' ve arr: ' + AdminListArr[1]);
+    // bot.sendMessage(msg.chat.id, 'ID var mi\n' + AdminListArr.indexOf(msg.from.id));
+    // bot.sendMessage(msg.chat.id, 'ID\n' + msg.from.id + ' ve arr: ' + AdminListArr[1]);
      bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!');
    }
  });
