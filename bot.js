@@ -80,7 +80,7 @@ if (process.env.NODE_ENV === 'production') {
    * matches /showList
    */
    bot.onText(/\/show/, function (msg, match) {
-   if(outhControl) {
+   if(var a=outhControl) {
      if(AdminList.indexOf(msg.from.id) >= 0) {
          var list = FirebaseManager.showList(bot, msg.chat.id);
        } else {
