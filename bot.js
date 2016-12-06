@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
  });
 
  bot.onText(/\/roundschedule/, function (msg, match) {
-   if(outhControl(msg.chat.id)) {
+  // if(outhControl(msg.chat.id)) {
      var message = "Time = " + Date().getTime();
       var getrounds = getroundtime(msg.chat.id)
       var rtimeItems = Object.keys(getrounds);
@@ -33,9 +33,9 @@ if (process.env.NODE_ENV === 'production') {
             message += "\nRound = " + getrounds[item];
           })
        bot.sendMessage(msg.chat.id, message);
-   } else {
-     bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
-   }
+  // } else {
+ //    bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
+  // }
  });
 
 //match /create [list name] 
