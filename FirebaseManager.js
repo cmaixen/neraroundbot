@@ -124,7 +124,9 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
     if(action === 'add'){
      if(statusget === 0){
       bot.sendMessage(listId, 'Round hasnt started yet!');
-     }else{
+     }else if(statusget === 2){
+      bot.sendMessage(listId, 'Put D @account!');
+     }else{{
       addItemOnArray(bot, listId, listObj, fullname);
      }
     }else{
@@ -194,26 +196,11 @@ FirebaseManager.prototype.showList = function (bot, listId) {
          .then(function() {
              //bot.sendMessage(listId, outputListArr);
          });
-     
-     // for(var i=0; i<outputListArr.length; i+=1){
-        //if (i==0) {
-         // outputStr = outputListArr[i];
-         // bot.sendMessage(listId, outputStr);
-          // FirebaseManager.prototype.sleep (1000);
-        //} else {
-          //if (i==outputListArr.length-1) {
-          //  outputStr = outputListArr[i] + (count+1) + ' participants';
-          //  bot.sendMessage(listId, outputStr);
-            // FirebaseManager.prototype.sleep (1000);
-          // } else { 
-           //  outputStr = outputListArr[i];
-           //  bot.sendMessage(listId, outputStr);
-            // FirebaseManager.prototype.sleep (1000);              
-         // }
-       // }      
-     // }  
     } else {
       bot.sendMessage(listId, 'Round cancelled!') ;
+      listsRef.update({
+        statusfield: 0
+      });
     }
         
     
