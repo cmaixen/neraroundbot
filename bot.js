@@ -72,8 +72,10 @@ if (process.env.NODE_ENV === 'production') {
    */
    bot.onText(/D (.+)/, function (msg, match) {
    if(outhControl(msg.chat.id)) {
-     //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1].split(" ")[0] + " Done!");
-     FirebaseManager.managerGuests(bot, msg.chat.id, match[1].split(" ")[0], 'remove');
+      if(msg.text.indexOf('D') == 0) {
+         //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1].split(" ")[0] + " Done!");
+         FirebaseManager.managerGuests(bot, msg.chat.id, match[1].split(" ")[0], 'remove');
+       }
     } else {
      bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
    }
