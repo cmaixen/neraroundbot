@@ -4,6 +4,7 @@ var bot;
 
 var FirebaseManager = require('./FirebaseManager.js');
 var outhControl = require('./outhControl.js');
+var getroundtime = require('./getroundtime.js');
 
 var kontrolchatid;
 var AdminList = "274298910###262889034";
@@ -20,6 +21,20 @@ if (process.env.NODE_ENV === 'production') {
      bot.sendMessage(msg.chat.id, message);
    } else {
      bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!\n/help');
+   }
+ });
+
+ bot.onText(/\/roundschedule/, function (msg, match) {
+   if(outhControl(msg.chat.id)) {
+     var message = "Time = " + Date().getTime();
+      var getrounds = getroundtime(msg.chat.id)
+      var rtimeItems = Object.keys(getrounds);
+          rtimeItems.forEach(function(item) {
+            message += "\nRound = " + getrounds[item];
+          })
+       bot.sendMessage(msg.chat.id, message);
+   } else {
+     bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
    }
  });
 
