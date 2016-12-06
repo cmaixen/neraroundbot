@@ -4,7 +4,7 @@ var bot;
 
 var FirebaseManager = require('./FirebaseManager.js');
 var outhControl = require('./outhControl.js');
-var getroundtime = require('./getroundtime.js');
+var getroundtime = require('./getRoundTime.js');
 
 var kontrolchatid;
 var AdminList = "274298910###262889034";
