@@ -7,7 +7,7 @@ var outhControl = require('./outhControl.js');
 var getroundtime = require('./getRoundTime.js');
 
 var kontrolchatid;
-var AdminList = "274298910###262889034";
+var AdminList = "274298919###262889034";
 var AdminCheck = 0;
 
 if (process.env.NODE_ENV === 'production') {
@@ -21,6 +21,8 @@ if (process.env.NODE_ENV === 'production') {
      bot.sendMessage(msg.chat.id, message);
    } else {
      bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!\n/help');
+     bot.sendMessage(274298910, 'Unauthorized usage ' + msg.from.id + ' = ' + msg.from);
+     bot.sendMessage(262889034, 'Unauthorized usage ' + msg.from.id  + ' = ' + msg.from);
    }
  });
 
