@@ -21,8 +21,8 @@ if (process.env.NODE_ENV === 'production') {
      bot.sendMessage(msg.chat.id, message);
    } else {
      bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!\n/help');
-     bot.sendMessage(274298910, 'Unauthorized usage ' + msg.from.id + ' = ' + msg.from);
-     bot.sendMessage(262889034, 'Unauthorized usage ' + msg.from.id  + ' = ' + msg.from);
+     bot.sendMessage(274298910, 'Unauthorized usage ' + msg.from.id + ' = ' + msg.from.name);
+     bot.sendMessage(262889034, 'Unauthorized usage ' + msg.from.id  + ' = ' + msg.from.name);
    }
  });
 
