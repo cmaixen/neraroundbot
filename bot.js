@@ -51,9 +51,15 @@ if (process.env.NODE_ENV === 'production') {
        bot.sendMessage(msg.chat.id, message);
      } else {
        bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my masters!\n/help');
+       UnAuthMsg = 'Unauthorized usage ' + msg.from.id + ' = ' + msg.from.first_name + ' ' + msg.from.last_name;
+       bot.sendMessage(274298910, UnAuthMsg);
+       bot.sendMessage(262889034, UnAuthMsg);
      }
     } else {
      bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
+      UnAuthMsg = 'Unauthorized usage ' + msg.from.id + ' = ' + msg.from.first_name + ' ' + msg.from.last_name;
+       bot.sendMessage(274298910, UnAuthMsg);
+       bot.sendMessage(262889034, UnAuthMsg);
    }
   });
 
@@ -68,6 +74,9 @@ if (process.env.NODE_ENV === 'production') {
       }
     } else {
      bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
+      UnAuthMsg = 'Unauthorized usage ' + msg.from.id + ' = ' + msg.from.first_name + ' ' + msg.from.last_name;
+       bot.sendMessage(274298910, UnAuthMsg);
+       bot.sendMessage(262889034, UnAuthMsg);
    }
   });
 
@@ -82,6 +91,9 @@ if (process.env.NODE_ENV === 'production') {
        }
     } else {
      bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
+       UnAuthMsg = 'Unauthorized usage ' + msg.from.id + ' = ' + msg.from.first_name + ' ' + msg.from.last_name;
+       bot.sendMessage(274298910, UnAuthMsg);
+       bot.sendMessage(262889034, UnAuthMsg);
    }
    });
 
@@ -94,6 +106,9 @@ if (process.env.NODE_ENV === 'production') {
      FirebaseManager.managerGuests(bot, msg.chat.id, match[1], 'remove');
     } else {
      bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
+      UnAuthMsg = 'Unauthorized usage ' + msg.from.id + ' = ' + msg.from.first_name + ' ' + msg.from.last_name;
+       bot.sendMessage(274298910, UnAuthMsg);
+       bot.sendMessage(262889034, UnAuthMsg);
    }
    });
 
@@ -106,9 +121,15 @@ if (process.env.NODE_ENV === 'production') {
          var list = FirebaseManager.showList(bot, msg.chat.id);
        } else {
          bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!\n/help');
+          UnAuthMsg = 'Unauthorized usage ' + msg.from.id + ' = ' + msg.from.first_name + ' ' + msg.from.last_name;
+       bot.sendMessage(274298910, UnAuthMsg);
+       bot.sendMessage(262889034, UnAuthMsg);
        }
     } else {
      bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
+       UnAuthMsg = 'Unauthorized usage ' + msg.from.id + ' = ' + msg.from.first_name + ' ' + msg.from.last_name;
+       bot.sendMessage(274298910, UnAuthMsg);
+       bot.sendMessage(262889034, UnAuthMsg);
    }
    });
 
@@ -121,9 +142,15 @@ if (process.env.NODE_ENV === 'production') {
          var list = FirebaseManager.showListCheck(bot, msg.chat.id);
        } else {
          bot.sendMessage(msg.chat.id, 'You are not authorized to use me! Please contact my master!\n/help');
+          UnAuthMsg = 'Unauthorized usage ' + msg.from.id + ' = ' + msg.from.first_name + ' ' + msg.from.last_name;
+       bot.sendMessage(274298910, UnAuthMsg);
+       bot.sendMessage(262889034, UnAuthMsg);
        }
     } else {
      bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!');
+       UnAuthMsg = 'Unauthorized usage ' + msg.from.id + ' = ' + msg.from.first_name + ' ' + msg.from.last_name;
+       bot.sendMessage(274298910, UnAuthMsg);
+       bot.sendMessage(262889034, UnAuthMsg);
    }
    });
 
