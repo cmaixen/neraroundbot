@@ -68,14 +68,14 @@ if (process.env.NODE_ENV === 'production') {
   */
   bot.onText(/@/, function (msg, match) {
    if(outhControl(msg.chat.id)) {
-      msg =  msg.text;
-      if(msg.indexOf('@') == 0) {
+      var msgg =  msg.text;
+      if(msgg.indexOf('@') == 0) {
        
-        var msgArr = msg.split("@");
-        var msgItems = Object.keys(msgArr);
+        var msggArr = msg.split("@");
+        var msggItems = Object.keys(msggArr);
         var message = '';
-          msgItems.forEach(function(item) {
-            message += "\naccountlar = @" + msgArr[item].trim();
+          msggItems.forEach(function(item) {
+            message += "\nAccountlar = @" + msggArr[item].trim();
           })
         bot.sendMessage(msg.chat.id, message);
         //FirebaseManager.managerGuests(bot, msg.chat.id, msg.text, 'add');
