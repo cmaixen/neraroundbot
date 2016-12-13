@@ -75,8 +75,10 @@ if (process.env.NODE_ENV === 'production') {
         var msggItems = Object.keys(msggArr);
         var message = '';
           msggItems.forEach(function(item) {
-            message += "\nAccountlar = @" + msggArr[item].trim();
-          })
+            if (msggArr[item].trim() == '') {
+              message += "\nAccountlar = @" + msggArr[item].trim();
+            }
+            })
         bot.sendMessage(msg.chat.id, message);
         //FirebaseManager.managerGuests(bot, msg.chat.id, msg.text, 'add');
       }
