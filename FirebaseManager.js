@@ -47,13 +47,13 @@ function addItemOnArray(bot, listId, participantsList, fullname){
       arrParticipants = participantsList[listReference].participants || [];
 
   //Element exists?
- // if(arrParticipants.indexOf(fullname) == -1){
+  if(arrParticipants.indexOf(fullname) == -1){
     arrParticipants.push(fullname);
    bot.sendMessage(listId, 'Name was added!');
- // }else{
-    //bot.sendMessage(listId, 'This name already exists in the list');
- //   return;
-//  }
+  }else{
+    bot.sendMessage(listId, 'This name already exists in the list');
+    return;
+  }
 
   //Set datas to list
   listsRef.update({
