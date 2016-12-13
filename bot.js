@@ -78,7 +78,7 @@ if (process.env.NODE_ENV === 'production') {
             if (msggArr[item].trim() != '') {
               message = "@" + msggArr[item].trim();
               FirebaseManager.managerGuests(bot, msg.chat.id, message, 'add');
-              bot.sendMessage(msg.chat.id, message);
+             // bot.sendMessage(msg.chat.id, message);
             }
             })
         
