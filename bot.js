@@ -71,7 +71,7 @@ if (process.env.NODE_ENV === 'production') {
       var msgg =  msg.text;
       if(msgg.indexOf('@') == 0) {
        
-        var msggArr = msg.split("@");
+        var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
           msggItems.forEach(function(item) {
