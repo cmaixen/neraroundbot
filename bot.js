@@ -68,9 +68,17 @@ if (process.env.NODE_ENV === 'production') {
   */
   bot.onText(/@/, function (msg, match) {
    if(outhControl(msg.chat.id)) {
-      if(msg.text.indexOf('@') == 0) {
-        //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + msg.text + " Added!");
-        FirebaseManager.managerGuests(bot, msg.chat.id, msg.text, 'add');
+      msg =  msg.text;
+      if(msg.indexOf('@') == 0) {
+       
+        var msgArr = msg.split("@");
+        var msgItems = Object.keys(msgArr);
+        var message = '';
+          msgItems.forEach(function(item) {
+            message += "\naccountlar = @" + msgArr[item].trim();
+          })
+        bot.sendMessage(msg.chat.id, message);
+        //FirebaseManager.managerGuests(bot, msg.chat.id, msg.text, 'add');
       }
     } else {
      bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
