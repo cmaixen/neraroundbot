@@ -128,6 +128,7 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
        bot.sendMessage(listId, 'Put D @account!');
       }else{
       addItemOnArray(bot, listId, listObj, fullname);
+      bot.sendMessage(listId, '\n' + fullname);
       }
      }else{
       removeItemOnArray(bot, listId, listObj, fullname);
