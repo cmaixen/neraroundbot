@@ -75,7 +75,7 @@ if (process.env.NODE_ENV === 'production') {
         var msggItems = Object.keys(msggArr);
         var message = '';
           msggItems.forEach(function(item) {
-            if (msggArr[item].trim() == '') {
+            if (msggArr[item].trim() != '') {
               message += "\nAccountlar = @" + msggArr[item].trim();
             }
             })
