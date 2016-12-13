@@ -50,15 +50,16 @@ function addItemOnArray(bot, listId, participantsList, fullname){
   if(arrParticipants.indexOf(fullname) == -1){
     arrParticipants.push(fullname);
    bot.sendMessage(listId, 'Name was added!');
+         listsRef.update({
+    participants: arrParticipants
+  });
   }else{
     bot.sendMessage(listId, 'This name already exists in the list');
     return;
   }
 
   //Set datas to list
-  listsRef.update({
-    participants: arrParticipants
-  });
+
 };
 
 function removeItemOnArray(bot, listId, participantsList, fullname){
