@@ -49,7 +49,7 @@ function addItemOnArray(bot, listId, participantsList, fullname){
   //Element exists?
   if(arrParticipants.indexOf(fullname) == -1){
     arrParticipants.push(fullname);
-   bot.sendMessage(listId, 'Name was added!');
+   bot.sendMessage(listId, 'Name was added!' + fullname);
          listsRef.update({
     participants: arrParticipants
   });
