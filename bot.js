@@ -114,7 +114,7 @@ if (process.env.NODE_ENV === 'production') {
   /**
    * matches /remove -- Listeden cikart
    */
-   bot.onText(/Remove! (.+)/, function (msg, match) {
+   bot.onText(/remove (.+)/, function (msg, match) {
    if(outhControl(msg.chat.id)) {
      //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " removed from the round!");
      bot.sendMessage(listId, 'Bursai 4');
