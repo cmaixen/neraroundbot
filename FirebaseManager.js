@@ -55,9 +55,13 @@ function addItemOnArray(bot, listId, participantsList, fullname){
           msggItems.forEach(function(item) {
             if (msggArr[item].trim() != '') {
               message = "@" + msggArr[item].trim();
-              arrParticipants.push(message);
-              bot.sendMessage(listId, 'Name was added!' + message);
+              if(arrParticipants.indexOf(message)>=1){
+                bot.sendMessage(listId, 'This name already exists in the list!' + message);
+              } else {
+                arrParticipants.push(message);
+                bot.sendMessage(listId, 'Name was added!' + message);
              // bot.sendMessage(msg.chat.id, message);
+              }
             }
             })
          listsRef.update ({
