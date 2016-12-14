@@ -150,6 +150,7 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
       //bot.sendMessage(listId, '\n' + fullname);
       }
      }else{
+      bot.sendMessage(listId, 'Bursai 3');
       removeItemOnArray(bot, listId, listObj, fullname);
     }
 
