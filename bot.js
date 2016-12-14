@@ -70,7 +70,8 @@ if (process.env.NODE_ENV === 'production') {
    if(outhControl(msg.chat.id)) {
       var msgg =  msg.text;
       if(msgg.indexOf('@') == 0) {
-       
+
+   /**  
         var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
@@ -81,7 +82,9 @@ if (process.env.NODE_ENV === 'production') {
              // bot.sendMessage(msg.chat.id, message);
             }
             })
-        
+        */
+
+        FirebaseManager.managerGuests(bot, msg.chat.id, msgg, 'add');
       }
     } else {
      bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');

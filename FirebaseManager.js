@@ -48,9 +48,19 @@ function addItemOnArray(bot, listId, participantsList, fullname){
 
   //Element exists?
   if(arrParticipants.indexOf(fullname) == -1){
-    arrParticipants.push(fullname);
-   bot.sendMessage(listId, 'Name was added!' + fullname);
-         listsRef.push ({
+ 
+        var msggArr = fullname.split("@");
+        var msggItems = Object.keys(msggArr);
+        var message = '';
+          msggItems.forEach(function(item) {
+            if (msggArr[item].trim() != '') {
+              message = "@" + msggArr[item].trim();
+              arrParticipants.push(message);
+              bot.sendMessage(listId, 'Name was added!' + message);
+             // bot.sendMessage(msg.chat.id, message);
+            }
+            })
+         listsRef.update ({
     participants: arrParticipants
   });
   }else{
@@ -129,7 +139,7 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
        bot.sendMessage(listId, 'Put D @account!');
       }else{
       addItemOnArray(bot, listId, listObj, fullname);
-      bot.sendMessage(listId, '\n' + fullname);
+      //bot.sendMessage(listId, '\n' + fullname);
       }
      }else{
       removeItemOnArray(bot, listId, listObj, fullname);
