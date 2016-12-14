@@ -50,7 +50,7 @@ function addItemOnArray(bot, listId, participantsList, fullname){
   if(arrParticipants.indexOf(fullname) == -1){
     arrParticipants.push(fullname);
    bot.sendMessage(listId, 'Name was added!' + fullname);
-         listsRef.update({
+         listsRef.push ({
     participants: arrParticipants
   });
   }else{
