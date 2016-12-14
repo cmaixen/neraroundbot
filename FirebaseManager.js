@@ -83,7 +83,11 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       arrParticipants = participantsList[listReference].participants || [],
       index = arrParticipants.indexOf(fullname);
 
+      bot.sendMessage(listId, 'Burasi 1');
+
   if(index > -1){
+
+    bot.sendMessage(listId, 'Bursai 2');
     arrParticipants.splice(index, 1);
   }else{
     bot.sendMessage(listId, 'This name not exists in the list');
