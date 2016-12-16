@@ -47,8 +47,7 @@ function addItemOnArray(bot, listId, participantsList, fullname){
       arrParticipants = participantsList[listReference].participants || [];
 
   //Element exists?
-  if(arrParticipants.indexOf(fullname) == -1){
- 
+  if(arrParticipants.indexOf(fullname) == -1){ 
         var msggArr = fullname.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
@@ -71,9 +70,7 @@ function addItemOnArray(bot, listId, participantsList, fullname){
     bot.sendMessage(listId, 'This name already exists in the list');
     return;
   }
-
   //Set datas to list
-
 };
 
 function removeItemOnArray(bot, listId, participantsList, fullname){
@@ -81,14 +78,23 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
       arrParticipants = participantsList[listReference].participants || [],
-      index = arrParticipants.indexOf(fullname);
-
-      bot.sendMessage(listId, 'Burasi 1');
+     
 
   if(index > -1){
-
-    bot.sendMessage(listId, 'Bursai 2');
-    arrParticipants.splice(index, 1);
+       var msgg =  fullname.replace("\n", " ");
+       msgg = msgg.replace(" D ", " ");
+       var msggArr = msgg.split("@");
+        var msggItems = Object.keys(msggArr);
+        var message = '';
+          msggItems.forEach(function(item) {
+            if (msggArr[item].trim() != '') {
+              message = "@" + msggArr[item].trim();
+              index = arrParticipants.indexOf(message);
+                  bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
+              //arrParticipants.splice(index, 1);
+            }
+            })      
+   
   }else{
     bot.sendMessage(listId, 'This name not exists in the list');
     return;
