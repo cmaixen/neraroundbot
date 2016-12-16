@@ -160,7 +160,7 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
        bot.sendMessage(listId, 'Put D @account!');
       }else{
       addItemOnArray(bot, listId, listObj, fullname, dropper);
-      //bot.sendMessage(listId, '\n' + fullname);
+      bot.sendMessage(listId, '\n' + dropper.id);
       }
      }else{
       //bot.sendMessage(listId, 'guest: ' + fullname);
