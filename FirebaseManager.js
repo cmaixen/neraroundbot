@@ -82,9 +82,9 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
 
  
        var msgg =  fullname.replace("\n", " ");
-       bot.sendMessage(listId, '\n1: ' + msgg);
+       //bot.sendMessage(listId, '\n1: ' + msgg);
        msgg = msgg.replace(" D ", " ");
-       bot.sendMessage(listId, '\n2: ' + msgg);
+       //bot.sendMessage(listId, '\n2: ' + msgg);
        var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
@@ -93,8 +93,8 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
               message = "@" + msggArr[item].trim();
               index = arrParticipants.indexOf(message);
                   if(index > -1){
-                       bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
-                      //arrParticipants.splice(index, 1);
+                       //bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
+                      arrParticipants.splice(index, 1);
                   }
             }else{
               bot.sendMessage(listId, 'This name not exists in the list');
@@ -157,7 +157,7 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
       //bot.sendMessage(listId, '\n' + fullname);
       }
      }else{
-      bot.sendMessage(listId, 'guest: ' + fullname);
+      //bot.sendMessage(listId, 'guest: ' + fullname);
       removeItemOnArray(bot, listId, listObj, fullname);
     }
 
