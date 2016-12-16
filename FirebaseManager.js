@@ -78,7 +78,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
       arrParticipants = participantsList[listReference].participants || [],
-     // index = arrParticipants.indexOf(fullname);
+      index = arrParticipants.indexOf(fullname);
 
  
        var msgg =  fullname.replace("\n", " ");
