@@ -40,11 +40,14 @@ var FirebaseManager = function () {};
   });
 };
 
-function addItemOnArray(bot, listId, participantsList, fullname){
+function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
   var list = listId.toString(),
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
-      arrParticipants = participantsList[listReference].participants || [];
+      arrParticipants = participantsList[listReference].participants || [],
+      arrDropper = droppedby.from.first_name + '(' + droppedby.from.id + ')';
+     
+     //msg.from.id + ' = ' + msg.from.first_name + ' ' + msg.from.last_name;
 
   //Element exists?
   if(arrParticipants.indexOf(fullname) == -1){ 
@@ -64,8 +67,11 @@ function addItemOnArray(bot, listId, participantsList, fullname){
             }
             })
          listsRef.update ({
-    participants: arrParticipants
-  });
+              participants: arrParticipants
+            });
+         listsRef.update ({
+              dropper: arrDropper
+            });
   }else{
     bot.sendMessage(listId, 'This name already exists in the list');
     return;
@@ -139,7 +145,7 @@ FirebaseManager.prototype.managerParticipants = function(bot, listId, firstName,
   });
 };
 
-FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, action){
+FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, action, dropper){
   ref.once('value', function(snapshot){        
     var listObj = snapshot.val(),
         list = listId.toString(),
@@ -153,7 +159,7 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
       }else if(statusget === 2){
        bot.sendMessage(listId, 'Put D @account!');
       }else{
-      addItemOnArray(bot, listId, listObj, fullname);
+      addItemOnArray(bot, listId, listObj, fullname, dropper);
       //bot.sendMessage(listId, '\n' + fullname);
       }
      }else{
