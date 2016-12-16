@@ -82,7 +82,9 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
 
   if(index > -1){
        var msgg =  fullname.replace("\n", " ");
+       bot.sendMessage(listId, '\n1: ' + msgg);
        msgg = msgg.replace(" D ", " ");
+       bot.sendMessage(listId, '\n2: ' + msgg);
        var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
@@ -156,7 +158,7 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
       //bot.sendMessage(listId, '\n' + fullname);
       }
      }else{
-      bot.sendMessage(listId, 'Bursai 3');
+      //bot.sendMessage(listId, 'Bursai 3');
       removeItemOnArray(bot, listId, listObj, fullname);
     }
 
