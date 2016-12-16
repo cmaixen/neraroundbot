@@ -45,7 +45,7 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
       arrParticipants = participantsList[listReference].participants || [],
-      arrDropper = droppedby.from.first_name + '(' + droppedby.from.id + ')';
+      arrDropper = droppedby.first_name + '(' + droppedby.id + ')';
      
      //msg.from.id + ' = ' + msg.from.first_name + ' ' + msg.from.last_name;
 
