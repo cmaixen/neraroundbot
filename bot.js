@@ -117,7 +117,7 @@ if (process.env.NODE_ENV === 'production') {
    bot.onText(/remove (.+)/, function (msg, match) {
    if(outhControl(msg.chat.id)) {
      //bot.sendMessage(msg.chat.id, msg.from.first_name + " " + match[1] + " removed from the round!");
-     bot.sendMessage(msg.chat.id, 'Bursai 4');
+     //bot.sendMessage(msg.chat.id, 'Bursai 4');
      FirebaseManager.managerGuests(bot, msg.chat.id, match[1], 'remove');
     } else {
      bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
