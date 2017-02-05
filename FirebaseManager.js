@@ -81,9 +81,10 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
 
 function removeItemOnArray(bot, listId, participantsList, fullname){
   var list = listId.toString(),
+      list = list.toLowerCase();
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
-      arrParticipants = participantsList[listReference].participants.toLowerCase() || [],
+      arrParticipants = participantsList[listReference].participants || [],
       index = arrParticipants.indexOf(fullname);
 
  
