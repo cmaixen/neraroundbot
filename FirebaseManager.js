@@ -91,13 +91,16 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
        //bot.sendMessage(listId, '\n1: ' + msgg);
        msgg = msgg.replace(" D ", " ");
        //bot.sendMessage(listId, '\n2: ' + msgg);
+       msgg = msgg.replace(" engaged with ", " ");
+       msgg = msgg.replace(" Engaged with ", " ");
+       bot.sendMessage(listId, '\n11: ' + msgg);
        var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
           msggItems.forEach(function(item) {
             if (msggArr[item].trim() != '') {
               message = "@" + msggArr[item].trim();
-              index = arrParticipants.indexOf(message);
+              index = arrParticipants.toLowerCase().indexOf(message.toLowerCase());
                   if(index > -1){
                        //bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
                       arrParticipants.splice(index, 1);
