@@ -94,7 +94,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
        msgg = msgg.replace(" engaged with ", " ");
        msgg = msgg.replace(" Engaged with ", " ");
        bot.sendMessage(listId, '\n11: ' + msgg);
-       var msggArr = msgg.split("@");
+/*       var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
           msggItems.forEach(function(item) {
@@ -133,6 +133,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
   //listsRef.update({
    // participants: arrParticipants
   //});
+  */
 };
 
 FirebaseManager.prototype.managerParticipants = function(bot, listId, firstName, lastName, action){
