@@ -83,7 +83,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
   var list = listId.toString(),
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
-      arrParticipants = participantsList[listReference].participants || [],
+      arrParticipants = participantsList[listReference].participants.toLowerCase() || [],
       index = arrParticipants.indexOf(fullname);
 
  
@@ -100,7 +100,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
           msggItems.forEach(function(item) {
             if (msggArr[item].trim() != '') {
               message = "@" + msggArr[item].trim();
-              arrParticipants = arrParticipants.toLowerCase()
+              //arrParticipants = arrParticipants.toLowerCase()
               index = arrParticipants.indexOf(message.toLowerCase());
                   if(index > -1){
                        //bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
