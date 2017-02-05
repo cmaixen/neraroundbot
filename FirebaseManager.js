@@ -108,6 +108,11 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                        //bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
                       arrParticipants.splice(index, 1);
                   }
+                  index = arrParticipants.indexOf(message.toUpperCase());
+                  if(index > -1){
+                       //bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
+                      arrParticipants.splice(index, 1);
+                  }
             }else{
               bot.sendMessage(listId, 'This name not exists in the list');
               return;
