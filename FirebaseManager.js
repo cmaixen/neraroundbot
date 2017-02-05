@@ -61,7 +61,7 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
                 bot.sendMessage(listId, 'This name already exists in the list!' + message);
               } else {
                 arrParticipants.push(message);
-                bot.sendMessage(listId, 'Name was added!' + message);
+                //bot.sendMessage(listId, 'Name was added!' + message);
              // bot.sendMessage(msg.chat.id, message);
               }
             }
@@ -81,8 +81,6 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
 
 function removeItemOnArray(bot, listId, participantsList, fullname){
   var list = listId.toString(),
-     // bot.sendMessage(listId, '\n2: ' + participantsList.tostring());
-     // participantsList = participantsList.toLowerCase();
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
       arrParticipants = participantsList[listReference].participants || [],
@@ -90,12 +88,9 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
 
  
        var msgg =  fullname.replace("\n", " ");
-       //bot.sendMessage(listId, '\n1: ' + msgg);
        msgg = msgg.replace(" D ", " ");
-       //bot.sendMessage(listId, '\n2: ' + msgg);
        msgg = msgg.replace(" engaged with ", " ");
        msgg = msgg.replace(" Engaged with ", " ");
-       //bot.sendMessage(listId, '\n11: ' + msgg);
        var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
@@ -172,7 +167,7 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
        bot.sendMessage(listId, 'Put D @account!');
       }else{
       addItemOnArray(bot, listId, listObj, fullname, dropper);
-      bot.sendMessage(listId, '\n' + dropper.id);
+      //bot.sendMessage(listId, '\n' + dropper.id);
       }
      }else{
       //bot.sendMessage(listId, 'guest: ' + fullname);
