@@ -108,12 +108,12 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                //bot.sendMessage(listId, 'D acc: ' + message + '\nitem: ' + item);                 
 
               for (var i = 0; i < arrParticipants.length; i++) {
-                 pattern = new RegExp(message + ".*",i);
+                 //pattern = new RegExp(message + ".*",i);
                  //pattern = '/' + message + '.*/i';
-                 bot.sendMessage(listId, 'pattern: ' + pattern + '\ni: ' + i);   
+                 //bot.sendMessage(listId, 'pattern: ' + pattern + '\ni: ' + i);   
                    
                    patternArr = arrParticipants[i].match(pattern);
-                   if (patternArr.length > 0) {
+                   if (arrParticipants[i].tolowercase() == message.tolowercase()) {
                          arrParticipants.splice(i, 1);
                    }
                  
