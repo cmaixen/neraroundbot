@@ -89,8 +89,9 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
  
        var msgg =  fullname.replace("\n", " ");
        msgg = msgg.replace(" D ", " ");
-       msgg = msgg.replace(" engaged with ", " ");
-       msgg = msgg.replace(" Engaged with ", " ");
+       var pattern = /engaged with.*/i;
+       msgg = msgg.replace(pattern, " ");
+       //msgg = msgg.replace(" Engaged with ", " ");
        var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
@@ -101,7 +102,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
               message = "@" + messageArr[0].trim();
                bot.sendMessage(listId, 'D acc: ' + message + '\nitem: ' + item);
                  /*
-                 var pattern;
+
               for (var i = 0; i < arrParticipants.length; i++) {
                  pattern = /Cook.*Book/i;
                  alert(arrParticipants[i] + " " + pattern.test(arrParticipants[i],i));
