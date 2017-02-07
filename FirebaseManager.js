@@ -94,9 +94,11 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
        var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
+        var messageArr; //diger kelimeleri ayirmak icin kullanilacak array
           msggItems.forEach(function(item) {
             if (msggArr[item].trim() != '') {
-              message = "@" + msggArr[item].trim();
+              messageArr = msggArr[item].split(" ");
+              message = "@" + messageArr[0].trim();
                bot.sendMessage(listId, 'D acc: ' + message + '\nitem: ' + item);
                  /*
                  var pattern;
