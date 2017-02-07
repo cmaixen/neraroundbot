@@ -154,7 +154,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
     listsRef.update({
       participants: arrParticipants
     });
-    */
+   
   }
  
 
@@ -162,7 +162,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
   //listsRef.update({
    // participants: arrParticipants
   //});
-  
+  */
 };
 
 FirebaseManager.prototype.managerParticipants = function(bot, listId, firstName, lastName, action){
