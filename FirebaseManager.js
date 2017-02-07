@@ -94,7 +94,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
        msgg = msgg.replace(pattern, " ");
        pattern = /engaged.*/i;
        msgg = msgg.replace(pattern, " ");
-       bot.sendMessage(listId, 'Gelenin son hali: ' + msgg); 
+       //bot.sendMessage(listId, 'Gelenin son hali: ' + msgg); 
      
         var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
@@ -104,7 +104,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
           msggItems.forEach(function(item) {
             if (msggArr[item].trim() != '') {
               messageArr = msggArr[item].split(" ");
-              message = messageArr[0].trim();
+              message = "@" + messageArr[0].trim();
                //bot.sendMessage(listId, 'D acc: ' + message + '\nitem: ' + item);                 
 
               for (var i = 0; i < arrParticipants.length; i++) {
@@ -113,11 +113,11 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                  //bot.sendMessage(listId, 'pattern: ' + pattern + '\ni: ' + i);   
                    
                    //patternArr = arrParticipants[i].match(pattern);
-                   bot.sendMessage(listId, 'participant_tolower: ' + arrParticipants[i].toLowerCase() + '\ni: ' + i);
-                   bot.sendMessage(listId, 'message_tolower: ' + message.toLowerCase() + '\ni: ' + i);
-                   //if (arrParticipants[i].toLowerCase() == message.toLowerCase()) {
-                  //       arrParticipants.splice(i, 1);
-                   //}
+                   //bot.sendMessage(listId, 'participant_tolower: ' + arrParticipants[i].toLowerCase() + '\ni: ' + i);
+                   //bot.sendMessage(listId, 'message_tolower: ' + message.toLowerCase() + '\ni: ' + i);
+                   if (arrParticipants[i].toLowerCase() == message.toLowerCase()) {
+                         arrParticipants.splice(i, 1);
+                   }
                  
                  //index = arrParticipants.indexOf(message.);                 
                  // if(index > -1){
