@@ -94,6 +94,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
        pattern = /engaged.*/i;
        msgg = msgg.replace(pattern, " ");
      bot.sendMessage(listId, 'Gelenin son hali: ' + msgg); 
+     /*
        var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
@@ -153,6 +154,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
     listsRef.update({
       participants: arrParticipants
     });
+    */
   }
  
 
