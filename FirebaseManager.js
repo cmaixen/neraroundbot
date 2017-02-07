@@ -131,8 +131,8 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
             }else{
               //bot.sendMessage(listId, 'This name not exists in the list');
               return;
+              */
             }
-            */
          }) 
  if(arrParticipants.length <= 0){
     bot.sendMessage(listId, 'Round Closed! \nWelldone!!');
