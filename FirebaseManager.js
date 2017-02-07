@@ -97,9 +97,19 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
           msggItems.forEach(function(item) {
             if (msggArr[item].trim() != '') {
               message = "@" + msggArr[item].trim();
-              //arrParticipants = arrParticipants.toLowerCase()
+               bot.sendMessage(listId, 'D acc: ' + message + '\nitem: ' + item);
+                 /*
+                 var pattern;
+              for (var i = 0; i < arrParticipants.length; i++) {
+                 pattern = /Cook.*Book/i;
+                 alert(arrParticipants[i] + " " + pattern.test(arrParticipants[i],i));
+               }
               index = arrParticipants.indexOf(message.toLowerCase());
-                  if(index > -1){
+                 if(index > -1){
+                       //bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
+                      arrParticipants.splice(index, 1);
+                  } 
+                 if(index > -1){
                        //bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
                       arrParticipants.splice(index, 1);
                   }
@@ -119,9 +129,10 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                       arrParticipants.splice(index, 1);
                   }
             }else{
-              bot.sendMessage(listId, 'This name not exists in the list');
+              //bot.sendMessage(listId, 'This name not exists in the list');
               return;
             }
+            */
          }) 
  if(arrParticipants.length <= 0){
     bot.sendMessage(listId, 'Round Closed! \nWelldone!!');
