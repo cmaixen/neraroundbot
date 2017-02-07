@@ -93,7 +93,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
        msgg = msgg.replace(pattern, " ");
        pattern = /engaged.*/i;
        msgg = msgg.replace(pattern, " ");
-       //msgg = msgg.replace(" Engaged with ", " ");
+     bot.sendMessage(listId, 'Gelenin son hali: ' + msgg); 
        var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
@@ -102,11 +102,9 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
             if (msggArr[item].trim() != '') {
               messageArr = msggArr[item].split(" ");
               message = "@" + messageArr[0].trim();
-               bot.sendMessage(listId, 'D acc: ' + message + '\nitem: ' + item);
-                 /*
+               //bot.sendMessage(listId, 'D acc: ' + message + '\nitem: ' + item);                 
 
               for (var i = 0; i < arrParticipants.length; i++) {
-                 pattern = /Cook.*Book/i;
                  alert(arrParticipants[i] + " " + pattern.test(arrParticipants[i],i));
                }
               index = arrParticipants.indexOf(message.toLowerCase());
@@ -136,7 +134,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
             }else{
               //bot.sendMessage(listId, 'This name not exists in the list');
               return;
-              */
+              
             }
          }) 
  if(arrParticipants.length <= 0){
