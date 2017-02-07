@@ -99,7 +99,9 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
         var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
-        var patternArr;
+        var participantAccArr;
+        var participantAcc;
+        //var patternArr;
         var messageArr; //diger kelimeleri ayirmak icin kullanilacak array
           msggItems.forEach(function(item) {
             if (msggArr[item].trim() != '') {
@@ -108,14 +110,12 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                //bot.sendMessage(listId, 'D acc: ' + message + '\nitem: ' + item);                 
 
               for (var i = 0; i < arrParticipants.length; i++) {
-                 //pattern = new RegExp(message + ".*",i);
-                 //pattern = '/' + message + '.*/i';
-                 //bot.sendMessage(listId, 'pattern: ' + pattern + '\ni: ' + i);   
-                   
                    //patternArr = arrParticipants[i].match(pattern);
                    //bot.sendMessage(listId, 'participant_tolower: ' + arrParticipants[i].toLowerCase() + '\ni: ' + i);
                    //bot.sendMessage(listId, 'message_tolower: ' + message.toLowerCase() + '\ni: ' + i);
-                   if (arrParticipants[i].toLowerCase() == message.toLowerCase()) {
+                   participantAccArr = arrParticipants[i].split(" ");
+                   participantAcc = participantAccArr[0].trim();
+                   if (participantAcc.toLowerCase() == message.toLowerCase()) {
                          arrParticipants.splice(i, 1);
                    }
                  
