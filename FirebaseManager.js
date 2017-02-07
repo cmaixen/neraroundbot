@@ -84,8 +84,11 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
       arrParticipants = participantsList[listReference].participants || [];
-      //statusget = listObj[listReference].statusfield;
-      //index = arrParticipants.indexOf(fullname);
+     
+      ref.once('value', function(snapshot){        
+      var listObj = snapshot.val(),
+      statusget = listObj[listReference].statusfield;
+
      
        var msgg =  fullname.replace("\n", " ");
        msgg = msgg.replace("D @", "@");
