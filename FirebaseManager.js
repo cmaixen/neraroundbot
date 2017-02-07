@@ -111,7 +111,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                  pattern = new RegExp(message + ".*",i);
                  //pattern = '/' + message + '.*/i';
                  bot.sendMessage(listId, 'pattern: ' + pattern + '\ni: ' + i);   
-                   /*
+                   
                    patternArr = arrParticipants[i].match(pattern);
                    if (patternArr.length > 0) {
                          arrParticipants.splice(i, 1);
@@ -123,7 +123,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                  //      arrParticipants.splice(index, 1);
                  //   }        
                    
-                   */
+                   
                }
                       
             }else{
@@ -156,7 +156,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
   //listsRef.update({
    // participants: arrParticipants
   //});
-  */
+  
 };
 
 FirebaseManager.prototype.managerParticipants = function(bot, listId, firstName, lastName, action){
