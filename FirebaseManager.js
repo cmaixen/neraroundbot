@@ -94,7 +94,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
        msgg = msgg.replace(pattern, " ");
        pattern = /engaged.*/i;
        msgg = msgg.replace(pattern, " ");
-       bot.sendMessage(listId, 'Gelenin son hali: ' + msgg); 
+       //bot.sendMessage(listId, 'Gelenin son hali: ' + msgg); 
      
         var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
@@ -108,7 +108,8 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                //bot.sendMessage(listId, 'D acc: ' + message + '\nitem: ' + item);                 
 
               for (var i = 0; i < arrParticipants.length; i++) {
-                 pattern = /+ message + .*/i;
+                 pattern = new RegExp(message + ".*",i);
+                 //pattern = '/' + message + '.*/i';
                  bot.sendMessage(listId, 'pattern: ' + pattern + '\ni: ' + i);   
                    /*
                    patternArr = arrParticipants[i].match(pattern);
