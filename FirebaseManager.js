@@ -88,6 +88,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
 
  
        var msgg =  fullname.replace("\n", " ");
+       msgg = msgg.replace("D @", "@");
        msgg = msgg.replace(" D ", " ");
        var pattern = /with.*/i;
        msgg = msgg.replace(pattern, " ");
