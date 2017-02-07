@@ -83,13 +83,16 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
   var list = listId.toString(),
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
+      statuscheck = "";
       arrParticipants = participantsList[listReference].participants || [];
      
       ref.once('value', function(snapshot){        
       var listObj = snapshot.val(),
       statusget = listObj[listReference].statusfield;
+           statuscheck = statusget
+           bot.sendMessage(listId, 'Status1: ' + statuscheck); 
              });
-
+ bot.sendMessage(listId, 'Status2: ' + statuscheck); 
      
        var msgg =  fullname.replace("\n", " ");
        msgg = msgg.replace("D @", "@");
