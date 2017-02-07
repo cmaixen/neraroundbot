@@ -94,7 +94,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
        msgg = msgg.replace(pattern, " ");
        pattern = /engaged.*/i;
        msgg = msgg.replace(pattern, " ");
-       //bot.sendMessage(listId, 'Gelenin son hali: ' + msgg); 
+       bot.sendMessage(listId, 'Gelenin son hali: ' + msgg); 
      
         var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
@@ -112,10 +112,12 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                  //pattern = '/' + message + '.*/i';
                  //bot.sendMessage(listId, 'pattern: ' + pattern + '\ni: ' + i);   
                    
-                   patternArr = arrParticipants[i].match(pattern);
-                   if (arrParticipants[i].toLowerCase() == message.toLowerCase()) {
-                         arrParticipants.splice(i, 1);
-                   }
+                   //patternArr = arrParticipants[i].match(pattern);
+                   bot.sendMessage(listId, 'participant_tolower: ' + arrParticipants[i].toLowerCase() + '\ni: ' + i);
+                   bot.sendMessage(listId, 'message_tolower: ' + message.toLowerCase() + '\ni: ' + i);
+                   //if (arrParticipants[i].toLowerCase() == message.toLowerCase()) {
+                  //       arrParticipants.splice(i, 1);
+                   //}
                  
                  //index = arrParticipants.indexOf(message.);                 
                  // if(index > -1){
