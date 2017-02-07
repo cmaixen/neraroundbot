@@ -108,7 +108,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                //bot.sendMessage(listId, 'D acc: ' + message + '\nitem: ' + item);                 
 
               for (var i = 0; i < arrParticipants.length; i++) {
-                 pattern = message + /.*/i;
+                 pattern = /+ message + .*/i;
                  patternArr = arrParticipants[i].match(pattern);
                    if (patternArr.length > 0) {
                          arrParticipants.splice(i, 1);
