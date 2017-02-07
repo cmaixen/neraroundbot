@@ -84,9 +84,9 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
       arrParticipants = participantsList[listReference].participants || [],
-      index = arrParticipants.indexOf(fullname);
-
- 
+      statusget = listObj[listReference].statusfield;
+      //index = arrParticipants.indexOf(fullname);
+     
        var msgg =  fullname.replace("\n", " ");
        msgg = msgg.replace("D @", "@");
        msgg = msgg.replace(" D ", " ");
@@ -101,7 +101,6 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
         var message = '';
         var participantAccArr;
         var participantAcc;
-        //var patternArr;
         var messageArr; //diger kelimeleri ayirmak icin kullanilacak array
           msggItems.forEach(function(item) {
             if (msggArr[item].trim() != '') {
@@ -110,22 +109,11 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                //bot.sendMessage(listId, 'D acc: ' + message + '\nitem: ' + item);                 
 
               for (var i = 0; i < arrParticipants.length; i++) {
-                   //patternArr = arrParticipants[i].match(pattern);
-                   //bot.sendMessage(listId, 'participant_tolower: ' + arrParticipants[i].toLowerCase() + '\ni: ' + i);
-                   //bot.sendMessage(listId, 'message_tolower: ' + message.toLowerCase() + '\ni: ' + i);
                    participantAccArr = arrParticipants[i].split(" ");
                    participantAcc = participantAccArr[0].trim();
                    if (participantAcc.toLowerCase() == message.toLowerCase()) {
                          arrParticipants.splice(i, 1);
                    }
-                 
-                 //index = arrParticipants.indexOf(message.);                 
-                 // if(index > -1){
-                       //bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
-                 //      arrParticipants.splice(index, 1);
-                 //   }        
-                   
-                   
                }
                       
             }else{
@@ -135,7 +123,11 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
             }
          }) 
  if(arrParticipants.length <= 0){
-    bot.sendMessage(listId, 'Round Closed! \nWelldone!!');
+      if (statusget === 0){
+           bot.sendMessage(listId, 'Round already Closed!');
+      } else if(statusget === 2){
+           bot.sendMessage(listId, 'Round Closed! \nWelldone!!');
+      }
  
     //Set datas to list
     listsRef.update({
@@ -150,6 +142,10 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
     listsRef.update({
       participants: arrParticipants
     });
+    
+     if (statusget === 1){
+           bot.sendMessage(listId, 'Account removed!');
+      }
    
   }
  
