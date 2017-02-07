@@ -94,45 +94,35 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
        msgg = msgg.replace(pattern, " ");
        pattern = /engaged.*/i;
        msgg = msgg.replace(pattern, " ");
-     bot.sendMessage(listId, 'Gelenin son hali: ' + msgg); 
-     /*
-       var msggArr = msgg.split("@");
+       bot.sendMessage(listId, 'Gelenin son hali: ' + msgg); 
+     
+        var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
+        var patternArr;
         var messageArr; //diger kelimeleri ayirmak icin kullanilacak array
           msggItems.forEach(function(item) {
             if (msggArr[item].trim() != '') {
               messageArr = msggArr[item].split(" ");
-              message = "@" + messageArr[0].trim();
+              message = messageArr[0].trim();
                //bot.sendMessage(listId, 'D acc: ' + message + '\nitem: ' + item);                 
 
               for (var i = 0; i < arrParticipants.length; i++) {
-                 alert(arrParticipants[i] + " " + pattern.test(arrParticipants[i],i));
+                 pattern = message + /.*/i;
+                 patternArr = arrParticipants[i].match(pattern);
+                   if (patternArr.length > 0) {
+                         arrParticipants.splice(i, 1);
+                   }
+                 
+                 //index = arrParticipants.indexOf(message.);                 
+                 // if(index > -1){
+                       //bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
+                 //      arrParticipants.splice(index, 1);
+                 //   }        
+                   
+                   
                }
-              index = arrParticipants.indexOf(message.toLowerCase());
-                 if(index > -1){
-                       //bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
-                      arrParticipants.splice(index, 1);
-                  } 
-                 if(index > -1){
-                       //bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
-                      arrParticipants.splice(index, 1);
-                  }
-                  index = arrParticipants.indexOf(message.toUpperCase());
-                  if(index > -1){
-                       //bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
-                      arrParticipants.splice(index, 1);
-                  }
-                 index = arrParticipants.indexOf(message+' NC');
-                  if(index > -1){
-                       //bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
-                      arrParticipants.splice(index, 1);
-                  }
-                 index = arrParticipants.indexOf(message+' nc');
-                  if(index > -1){
-                       //bot.sendMessage(listId, 'acc: ' + message + '\nindex: ' + index);
-                      arrParticipants.splice(index, 1);
-                  }
+                      
             }else{
               //bot.sendMessage(listId, 'This name not exists in the list');
               return;
