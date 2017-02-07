@@ -113,7 +113,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                  //bot.sendMessage(listId, 'pattern: ' + pattern + '\ni: ' + i);   
                    
                    patternArr = arrParticipants[i].match(pattern);
-                   if (arrParticipants[i].tolowercase() == message.tolowercase()) {
+                   if (arrParticipants[i].toLowerCase() == message.toLowerCase()) {
                          arrParticipants.splice(i, 1);
                    }
                  
