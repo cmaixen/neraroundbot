@@ -109,7 +109,9 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
 
               for (var i = 0; i < arrParticipants.length; i++) {
                  pattern = /+ message + .*/i;
-                 patternArr = arrParticipants[i].match(pattern);
+                 bot.sendMessage(listId, 'pattern: ' + pattern + '\ni: ' + i);   
+                   /*
+                   patternArr = arrParticipants[i].match(pattern);
                    if (patternArr.length > 0) {
                          arrParticipants.splice(i, 1);
                    }
@@ -120,7 +122,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                  //      arrParticipants.splice(index, 1);
                  //   }        
                    
-                   
+                   */
                }
                       
             }else{
