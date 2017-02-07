@@ -83,8 +83,8 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
   var list = listId.toString(),
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
-      arrParticipants = participantsList[listReference].participants || [],
-      statusget = listObj[listReference].statusfield;
+      arrParticipants = participantsList[listReference].participants || [];
+      //statusget = listObj[listReference].statusfield;
       //index = arrParticipants.indexOf(fullname);
      
        var msgg =  fullname.replace("\n", " ");
@@ -123,11 +123,11 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
             }
          }) 
  if(arrParticipants.length <= 0){
-      if (statusget === 0){
-           bot.sendMessage(listId, 'Round already Closed!');
-      } else if(statusget === 2){
+     // if (statusget === 0){
+     //      bot.sendMessage(listId, 'Round already Closed!');
+     // } else if(statusget === 2){
            bot.sendMessage(listId, 'Round Closed! \nWelldone!!');
-      }
+     // }
  
     //Set datas to list
     listsRef.update({
@@ -143,9 +143,9 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       participants: arrParticipants
     });
     
-     if (statusget === 1){
-           bot.sendMessage(listId, 'Account removed!');
-      }
+     //if (statusget === 1){
+     //      bot.sendMessage(listId, 'Account removed!');
+     // }
    
   }
  
