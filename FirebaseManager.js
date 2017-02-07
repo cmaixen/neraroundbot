@@ -88,6 +88,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       ref.once('value', function(snapshot){        
       var listObj = snapshot.val(),
       statusget = listObj[listReference].statusfield;
+             });
 
      
        var msgg =  fullname.replace("\n", " ");
