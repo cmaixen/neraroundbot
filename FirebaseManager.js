@@ -92,7 +92,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       var listObj = snapshot.val(),
       statusget = listObj[listReference].statusfield;
             
-        bot.sendMessage(listId, 'fullname: ' + fullname  + '\nidex: ' + fullname.indexOf("D ")); 
+       // bot.sendMessage(listId, 'fullname: ' + fullname  + '\nidex: ' + fullname.indexOf("D ")); 
      
      if(fullname.indexOf("D ") <0){
           removeControl = 1;
@@ -119,7 +119,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                //bot.sendMessage(listId, 'D acc: ' + message + '\nitem: ' + item);                 
 
               for (var i = 0; i < arrParticipants.length; i++) {
-                   bot.sendMessage(listId, 'remmovecontrol: ' + removeControl + '\nstatus: ' + statusget);
+                   //bot.sendMessage(listId, 'remmovecontrol: ' + removeControl + '\nstatus: ' + statusget);
                    if(removeControl === 1 && statusget === 2){
                         bot.sendMessage(listId, 'Round already started. You cant remove anymore!\nSo complete the round and put D @acc');
                     } else {
