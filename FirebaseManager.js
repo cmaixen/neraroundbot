@@ -92,8 +92,9 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       var listObj = snapshot.val(),
       statusget = listObj[listReference].statusfield;
             
+        bot.sendMessage(listId, 'fullname: ' + fullname  + '\nidex: ' + fullname.indexOf("D ")); 
      
-     if(fullname.indexOf("D ") >=0){
+     if(fullname.indexOf("D ") <0){
           removeControl = 1;
      }    
        var msgg =  fullname.replace("\n", " ");
