@@ -85,6 +85,9 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       listsRef = ref.child(listReference),
       arrParticipants = participantsList[listReference].participants || [];
      
+     
+   bot.sendMessage(listId, 'fonksiyona ne geldi: ' + fullname);
+     
    ref.once('value', function(snapshot){        
       var listObj = snapshot.val(),
       statusget = listObj[listReference].statusfield;
@@ -98,7 +101,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
        pattern = /engaged.*/i;
        msgg = msgg.replace(pattern, " ");
        //bot.sendMessage(listId, 'Gelenin son hali: ' + msgg); 
-     
+     /*
         var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
@@ -151,6 +154,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       }
    
   }
+  */
   });
 
   //Set datas to list
