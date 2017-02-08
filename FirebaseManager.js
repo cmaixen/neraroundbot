@@ -85,14 +85,17 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       listsRef = ref.child(listReference),
       arrParticipants = participantsList[listReference].participants || [];
      
-     
-   bot.sendMessage(listId, 'fonksiyona ne geldi: ' + fullname);
+  var removeControl = 0;   
+
      
    ref.once('value', function(snapshot){        
       var listObj = snapshot.val(),
       statusget = listObj[listReference].statusfield;
             
      
+     if(fullname.indexOf("D ") >=0){
+          removeControl = 1;
+     }    
        var msgg =  fullname.replace("\n", " ");
        msgg = msgg.replace("D @", "@");
        msgg = msgg.replace(" D ", " ");
@@ -101,7 +104,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
        pattern = /engaged.*/i;
        msgg = msgg.replace(pattern, " ");
        //bot.sendMessage(listId, 'Gelenin son hali: ' + msgg); 
-     /*
+     
         var msggArr = msgg.split("@");
         var msggItems = Object.keys(msggArr);
         var message = '';
@@ -115,11 +118,15 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                //bot.sendMessage(listId, 'D acc: ' + message + '\nitem: ' + item);                 
 
               for (var i = 0; i < arrParticipants.length; i++) {
-                   participantAccArr = arrParticipants[i].split(" ");
-                   participantAcc = participantAccArr[0].trim();
-                   if (participantAcc.toLowerCase() == message.toLowerCase()) {
-                         arrParticipants.splice(i, 1);
-                   }
+                   if(removeControl === 1 and statusget === 2){
+                        bot.sendMessage(listId, 'Round already started. You cant remove anymore!\nSo complete the round and put D @acc');
+                    } else {
+                        participantAccArr = arrParticipants[i].split(" ");
+                        participantAcc = participantAccArr[0].trim();
+                        if (participantAcc.toLowerCase() == message.toLowerCase()) {
+                              arrParticipants.splice(i, 1);
+                        }
+                    }  
                }
                       
             }else{
@@ -154,7 +161,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       }
    
   }
-  */
+  
   });
 
   //Set datas to list
