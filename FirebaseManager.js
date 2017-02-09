@@ -141,7 +141,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
       if (statusget === 0){
            bot.sendMessage(listId, 'Round already Closed!');
       } else if(statusget === 2){
-           bot.sendMessage(listId, 'Round Closed! \nWelldone!!');
+           bot.sendMessage(listId, 'Round Closed! \nWell done!!');
       }
  
     //Set datas to list
@@ -256,7 +256,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
         //countforlisting += 1;
         listnumber += 1;
 
-        if (listnumber >= 5) {
+        if (listnumber >= 20) {
           outputListStr += '####' +'\n';          
           listnumber = 0;
         }
