@@ -102,7 +102,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
        msgg = msgg.replace(" D ", " ");
        var pattern = / with.*/i;
        msgg = msgg.replace(pattern, " ");
-       pattern = /engaged.*/i;
+       pattern = / engaged.*/i;
        msgg = msgg.replace(pattern, " ");
        //bot.sendMessage(listId, 'Gelenin son hali: ' + msgg); 
      
