@@ -28,13 +28,13 @@ if (process.env.NODE_ENV === 'production') {
    }
  });
 
- bot.onText(/\/roundschedule/, function (msg, match) {
+ bot.onText(/\/rounds/, function (msg, match) {
   // if(outhControl(msg.chat.id)) {
-     var message = "Time = " + Date().getTime();
+     var message = "Rounds;"; //Time = " + Date().getTime();
       var getrounds = getroundtime(msg.chat.id)
       var rtimeItems = Object.keys(getrounds);
           rtimeItems.forEach(function(item) {
-            message += "\nRound = " + getrounds[item];
+            message += "\n" + getrounds[item];
           })
        bot.sendMessage(msg.chat.id, message);
   // } else {
