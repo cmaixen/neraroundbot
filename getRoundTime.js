@@ -43,7 +43,8 @@ for (var make in jsonObject.Rounds) {
         RoundTime = jsonObject.Rounds[make][RoundSira].RoundTime;
         //console.log(make + ', ' + RoundTime + ', ' + RoundInt);
             if (make==UChatId) {
-                roundtimes.push(RoundTime +', ' + RoundInt)
+                roundtimes.push(RoundTime +' GMT')
+                // roundtimes.push(RoundTime +', ' + RoundInt)
             }
         }
     }
