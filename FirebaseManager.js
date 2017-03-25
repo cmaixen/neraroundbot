@@ -123,9 +123,10 @@ function removeItemOnArray(bot, listId, participantsList, fullname, droppedby){
                    if(removeControl === 1 && statusget === 2){
                         bot.sendMessage(listId, 'Round already started. You cant remove anymore!\nSo complete the round and put D @acc');
                     } else {
-                        participantAccArr = arrParticipants[i].split(" ");
+                        participantAccArr = arrParticipants[i].split(", ");
                         participantAcc = participantAccArr[0].trim();
                         bot.sendMessage(listId, participantAcc)
+                        participantAcc = participantAccArr[1].trim();
                         if (participantAcc.toLowerCase() == message.toLowerCase()) {
                               arrParticipants.splice(i, 1);
                         }
