@@ -21,8 +21,7 @@ var currentTime = moment();
                 return output;
           }
 
-                          output += 'in ' + roundrelease.diff(currentTime, 'HH:mm:ss') + '\n';
-                return output;
+
           
     });
 
@@ -43,7 +42,8 @@ var currentTime = moment();
 //output = moment(roundrelease).toNow();
 //output = currentTime.format('HH:mm');
 
-
+                output += 'in ' + roundrelease.diff(currentTime, 'HH:mm:ss') + '\n';
+                return output;
 
 }
 module.exports = nextr; 
