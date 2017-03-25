@@ -308,7 +308,7 @@ FirebaseManager.prototype.showListCheck = function (bot, listId) {
 
      //output
      for(var i=0; i<participantsList.length; i+=1){
-       output += '' +participantsList[i]+'\n';
+       output += '@' +participantsList[i]+'\n';
        count = i;
      }
    
