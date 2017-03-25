@@ -56,11 +56,11 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
         var message = '';
           msggItems.forEach(function(item) {
             if (msggArr[item].trim() != '') {
-              message = "@" + msggArr[item].trim();
-              if(arrParticipants.indexOf(droppedby + ', ' + message)>=1){
+              message = droppedby + ', ' + "@" + msggArr[item].trim();
+              if(arrParticipants.indexOf(message)>=1){
                 bot.sendMessage(listId, 'This name already exists in the list!' + message);
               } else {
-                arrParticipants.push(droppedby + ', ' + message);
+                arrParticipants.push(message);
                 //bot.sendMessage(listId, 'Name was added!' + message);
              // bot.sendMessage(msg.chat.id, message);
               }
