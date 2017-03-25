@@ -1,6 +1,7 @@
 var nextr = function(roundlist) {
 
 var moment = require('moment');
+var getroundtime = require('./getRoundTime.js');
 var output = "";
 
 var currentTime = moment();
@@ -12,7 +13,7 @@ var currentTime = moment();
           var roundrelease = moment(getrounds[item], 'HH:mm');
 
           output = currentTime.format('HH:mm');
-          
+
     });
 
 
