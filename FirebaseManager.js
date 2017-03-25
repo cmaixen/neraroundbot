@@ -63,7 +63,7 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
 
               bot.sendMessage(listId, 'Gonderilen ' + message);
               bot.sendMessage(listId, 'Kontrol ' + arrParticipants[1].trim());
-              bot.sendMessage(listId, 'if fonk ' + arrParticipants.prototype.indexOf(message));
+              bot.sendMessage(listId, 'if fonk ' + arrParticipants.indexOf(message));
               
               if(arrParticipants.indexOf(message)>=1){
                 bot.sendMessage(listId, 'This name already exists in the list!' + message);
