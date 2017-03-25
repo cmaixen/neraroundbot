@@ -60,7 +60,7 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
               if(arrParticipants.indexOf(message)>=1){
                 bot.sendMessage(listId, 'This name already exists in the list!' + message);
               } else {
-                arrParticipants.push(message);
+                arrParticipants.push(droppedby + ', ' + message);
                 //bot.sendMessage(listId, 'Name was added!' + message);
              // bot.sendMessage(msg.chat.id, message);
               }
