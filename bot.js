@@ -44,11 +44,14 @@ if (process.env.NODE_ENV === 'production') {
 
  bot.onText(/\/round1/, function (msg, match) {
 
-   var roundstimes = FirebaseManager.getroundtime(bot, msg.chat.id); 
+   var roundstimes = [];
+   roundstimes = FirebaseManager.getroundtime(bot, msg.chat.id); 
 
   // if(outhControl(msg.chat.id)) {
     var message = "Round Times;"; //Time = " + Date().getTime();
     var outputListStrArr = '';
+
+bot.sendMessage(msg.chat.id, roundstimes);
 
     for(var i=0; i<roundstimes.length; i+=1){
         outputListStrArr = roundstimes[i].split(", ");
@@ -56,7 +59,7 @@ if (process.env.NODE_ENV === 'production') {
     }
 
     bot.sendMessage(msg.chat.id, message);
-    
+
      /*
       var getrounds = getroundtime(msg.chat.id)
       var rtimeItems = Object.keys(getrounds);
