@@ -57,7 +57,7 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
           msggItems.forEach(function(item) {
             if (msggArr[item].trim() != '') {
               message = "@" + msggArr[item].trim();
-              if(arrParticipants.indexOf(message)>=1){
+              if(arrParticipants.indexOf(droppedby + ', ' + message)>=1){
                 bot.sendMessage(listId, 'This name already exists in the list!' + message);
               } else {
                 arrParticipants.push(droppedby + ', ' + message);
@@ -124,15 +124,15 @@ function removeItemOnArray(bot, listId, participantsList, fullname, droppedby){
                         bot.sendMessage(listId, 'Round already started. You cant remove anymore!\nSo complete the round and put D @acc');
                     } else {
                         participantAccArr = arrParticipants[i].split(", ");
-                        participantAcc = participantAccArr[0].trim();
-                        bot.sendMessage(listId, participantAcc)
+                        //participantAcc = participantAccArr[0].trim();
+                        //bot.sendMessage(listId, participantAcc)
                         participantAcc = participantAccArr[1].trim();
-                        bot.sendMessage(listId, participantAcc)
+                        //bot.sendMessage(listId, participantAcc)
                         if (participantAcc.toLowerCase() == message.toLowerCase()) {
                             if (participantAccArr[0].trim() == droppedby) {
                                 arrParticipants.splice(i, 1);
                             } else {
-                                bot.sendMessage(listId, participantAcc + ' is not yours dropped account')
+                                bot.sendMessage(listId, participantAcc + ' is not your account')
                             }
                         }
                     }  
@@ -258,7 +258,8 @@ FirebaseManager.prototype.showList = function (bot, listId) {
       //outputStr = '';
            
       for(var i=0; i<participantsList.length; i+=1){
-        outputListStr += '' +participantsList[i]+'\n';
+        participantAccArr = participantsList[i].split(", ");
+        outputListStr += '' +participantAccArr[1]+'\n';
         count = i;
         //countforlisting += 1;
         listnumber += 1;
@@ -278,6 +279,10 @@ FirebaseManager.prototype.showList = function (bot, listId) {
          .then(function() {
              //bot.sendMessage(listId, outputListArr);
          });
+      
+      listsRef.update({
+        statusfield: 2
+      });
     } else {
       bot.sendMessage(listId, 'Round cancelled!') ;
       listsRef.update({
