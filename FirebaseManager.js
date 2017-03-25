@@ -57,15 +57,8 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
           msggItems.forEach(function(item) {
             if (msggArr[item].trim() != '') {
               message = droppedby + ', ' + "@" + msggArr[item].trim();
-
-              //listede Varmı Kontrol 
-
-
-              bot.sendMessage(listId, 'Gonderilen ' + message);
-              bot.sendMessage(listId, 'Kontrol ' + arrParticipants[1].trim());
-              bot.sendMessage(listId, 'if fonk ' + arrParticipants.indexOf(message));
               
-              if(arrParticipants.indexOf(message)>=1){
+              if(arrParticipants.indexOf(message)>=-1){
                 bot.sendMessage(listId, 'This name already exists in the list!' + message);
               } else {
                 arrParticipants.push(message);
