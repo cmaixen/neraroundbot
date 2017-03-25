@@ -69,9 +69,6 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
          listsRef.update ({
               participants: arrParticipants
             });
-         listsRef.update ({
-              dropper: arrDropper
-            });
   }else{
     bot.sendMessage(listId, 'This name already exists in the list');
     return;
