@@ -4,6 +4,7 @@ var moment = require('moment');
 var getroundtime = require('./getRoundTime.js');
 var output = "";
 var timecheck = [];
+var roundrelease = moment('10:00', 'HH:mm');
 
 var currentTime = moment();
 
@@ -11,6 +12,8 @@ var currentTime = moment();
       var rtimeItems = Object.keys(getrounds);
           rtimeItems.forEach(function(item) {
           timecheck.push(moment(getrounds[item], 'HH:mm'));
+          roundrelease = moment(getrounds[item], 'HH:mm');
+          output += '' + moment(roundrelease).toNow() + '/n';
     });
 
 /*
@@ -26,8 +29,8 @@ var currentTime = moment();
 
     }
 */
-var roundrelease = moment('10:00', 'HH:mm');
-output = moment(roundrelease).toNow();
+//var roundrelease = moment('10:00', 'HH:mm');
+//output = moment(roundrelease).toNow();
 //output = currentTime.format('HH:mm');
 
     return output;
