@@ -234,6 +234,29 @@ FirebaseManager.prototype.Pro = function sendMessages(bot, chatId, messages) {
     });
 }
 
+FirebaseManager.prototype.getroundtime = function (bot, listId) {
+  ref.once("value", function(snapshot) {
+
+    var listObj = snapshot.val(),
+        list = listId.toString(),
+        listReference = 'list_'+list.replace(/-|\s/g,''),
+        listsRef = ref.child(listReference),
+        roundtime = listObj[listReference].roundtime || [],
+        //countforlisting = 0,
+        outputListStr = '',
+        outputListStrArr = '';
+    
+    for(var i=0; i<roundtime.length; i+=1){
+        outputListStrArr = roundtime[i].split(", ");
+        outputListStr += '' +outputListStrArr[0]+'\n';
+    }
+
+    return outputListStr;
+
+  })
+};
+
+
 FirebaseManager.prototype.showList = function (bot, listId) {
   ref.once("value", function(snapshot) {
 
