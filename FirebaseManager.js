@@ -187,7 +187,7 @@ FirebaseManager.prototype.managerParticipants = function(bot, listId, firstName,
   });
 };
 
-FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, action, droppedby){
+FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, action, dropper){
   ref.once('value', function(snapshot){        
     var listObj = snapshot.val(),
         list = listId.toString(),
