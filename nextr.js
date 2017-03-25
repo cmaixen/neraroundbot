@@ -13,7 +13,8 @@ var currentTime = moment();
           rtimeItems.forEach(function(item) {
           timecheck.push(moment(getrounds[item], 'HH:mm'));
           roundrelease = moment(getrounds[item], 'HH:mm');
-          output += '' + moment(roundrelease).toNow() + '/n';
+          //output += '' + moment(roundrelease).toNow() + '\n';
+          output += '' + roundrelease.diff(currentTime) + '\n';
     });
 
 /*
