@@ -14,7 +14,13 @@ var currentTime = moment();
           timecheck.push(moment(getrounds[item], 'HH:mm'));
           roundrelease = moment(getrounds[item], 'HH:mm');
           //output += '' + moment(roundrelease).toNow() + '\n';
-          output += '' + roundrelease.diff(currentTime) + '\n';
+          if (roundrelease.diff(currentTime)<=0){
+
+          } else {
+                output += '' + roundrelease.diff(currentTime, 'HH:mm:ss') + '\n';
+                return output;
+          }
+          
     });
 
 /*
@@ -34,7 +40,7 @@ var currentTime = moment();
 //output = moment(roundrelease).toNow();
 //output = currentTime.format('HH:mm');
 
-    return output;
+
 
 }
 module.exports = nextr; 
