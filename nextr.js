@@ -44,7 +44,7 @@ var currentTime = moment();
 //output = moment(roundrelease).toNow();
 //output = currentTime.format('HH:mm');
 
-                output += 'in ' + fark.format('HH:mm:ss') + '\n';
+                output += 'in ' + fark.format('HH:mm:ss').toString + '\n';
                 return output;
 
 }
