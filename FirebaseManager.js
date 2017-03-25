@@ -127,8 +127,13 @@ function removeItemOnArray(bot, listId, participantsList, fullname, droppedby){
                         participantAcc = participantAccArr[0].trim();
                         bot.sendMessage(listId, participantAcc)
                         participantAcc = participantAccArr[1].trim();
+                        bot.sendMessage(listId, participantAcc)
                         if (participantAcc.toLowerCase() == message.toLowerCase()) {
-                              arrParticipants.splice(i, 1);
+                            if (participantAccArr[0].trim() == droppedby) {
+                                arrParticipants.splice(i, 1);
+                            } else {
+                                bot.sendMessage(listId, participantAcc + ' is not yours dropped account')
+                            }
                         }
                     }  
                }
