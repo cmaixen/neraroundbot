@@ -79,7 +79,7 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
   //Set datas to list
 };
 
-function removeItemOnArray(bot, listId, participantsList, fullname){
+function removeItemOnArray(bot, listId, participantsList, fullname, droppedby){
   var list = listId.toString(),
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
@@ -125,6 +125,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname){
                     } else {
                         participantAccArr = arrParticipants[i].split(" ");
                         participantAcc = participantAccArr[0].trim();
+                        bot.sendMessage(participantAcc)
                         if (participantAcc.toLowerCase() == message.toLowerCase()) {
                               arrParticipants.splice(i, 1);
                         }
@@ -186,7 +187,7 @@ FirebaseManager.prototype.managerParticipants = function(bot, listId, firstName,
   });
 };
 
-FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, action, dropper){
+FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, action, droppedby){
   ref.once('value', function(snapshot){        
     var listObj = snapshot.val(),
         list = listId.toString(),
@@ -205,7 +206,7 @@ FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, actio
       }
      }else{
       //bot.sendMessage(listId, 'guest: ' + fullname);
-      removeItemOnArray(bot, listId, listObj, fullname);
+      removeItemOnArray(bot, listId, listObj, fullname, dropper);
     }
 
   
