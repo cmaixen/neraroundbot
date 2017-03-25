@@ -5,6 +5,7 @@ var bot;
 var FirebaseManager = require('./FirebaseManager.js');
 var outhControl = require('./outhControl.js');
 var getroundtime = require('./getRoundTime.js');
+var nextr = require('./nextr.js');
 
 var kontrolchatid;
 var AdminList = "274298910###262889034";
@@ -54,8 +55,8 @@ if (process.env.NODE_ENV === 'production') {
           })
 
       */
-      var date = new Date();
-      message = date.getTime();
+      //var date = new Date();
+      message = nextr(msg.chat.id);
       bot.sendMessage(msg.chat.id, message);
   // } else {
  //    bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
