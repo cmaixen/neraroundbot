@@ -42,12 +42,12 @@ if (process.env.NODE_ENV === 'production') {
   // }
  });
 
- bot.onText(/\/rounds1/, function (msg, match) {
+ bot.onText(/\/round1/, function (msg, match) {
 
    var message = FirebaseManager.getroundtime(bot, msg.chat.id); 
 
   // if(outhControl(msg.chat.id)) {
-     var message = "Rounds;"; //Time = " + Date().getTime();
+     var message = "Round Times;"; //Time = " + Date().getTime();
       var getrounds = getroundtime(msg.chat.id)
       var rtimeItems = Object.keys(getrounds);
           rtimeItems.forEach(function(item) {
