@@ -59,7 +59,7 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
               message = droppedby + ', ' + "@" + msggArr[item].trim();
               
               if(arrParticipants.indexOf(message)>=-1){
-                bot.sendMessage(listId, 'This name already exists in the list!' + message);
+                bot.sendMessage(listId, 'This name already exists in the list! ' + message);
               } else {
                 arrParticipants.push(message);
                 //bot.sendMessage(listId, 'Name was added!' + message);
