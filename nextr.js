@@ -15,7 +15,7 @@ var currentTime = moment();
           timecheck.push(moment(getrounds[item], 'HH:mm'));
           roundrelease = moment(getrounds[item], 'HH:mm');
           //output += '' + moment(roundrelease).toNow() + '\n';
-          fark = roundrelease.diff(currentTime)
+          fark = roundrelease.diff(currentTime).toString
           if (roundrelease.diff(currentTime)<=0){
 
           } else {
@@ -44,7 +44,7 @@ var currentTime = moment();
 //output = moment(roundrelease).toNow();
 //output = currentTime.format('HH:mm');
 
-                output += 'in ' + fark.format('HH:mm:ss').toString + '\n';
+                output += 'in ' + fark + '\n';
                 return output;
 
 }
