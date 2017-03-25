@@ -17,9 +17,12 @@ var currentTime = moment();
           if (roundrelease.diff(currentTime)<=0){
 
           } else {
-                output += '' + roundrelease.diff(currentTime, 'HH:mm:ss') + '\n';
+                output += 'in ' + roundrelease.diff(currentTime, 'HH:mm:ss') + '\n';
                 return output;
           }
+
+                          output += 'in ' + roundrelease.diff(currentTime, 'HH:mm:ss') + '\n';
+                return output;
           
     });
 
