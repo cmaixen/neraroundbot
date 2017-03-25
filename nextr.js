@@ -5,6 +5,7 @@ var getroundtime = require('./getRoundTime.js');
 var output = "";
 var timecheck = [];
 var roundrelease = moment('00:00', 'HH:mm');
+var fark = moment();
 
 var currentTime = moment();
 
@@ -14,6 +15,7 @@ var currentTime = moment();
           timecheck.push(moment(getrounds[item], 'HH:mm'));
           roundrelease = moment(getrounds[item], 'HH:mm');
           //output += '' + moment(roundrelease).toNow() + '\n';
+          fark = roundrelease.diff(currentTime)
           if (roundrelease.diff(currentTime)<=0){
 
           } else {
@@ -42,7 +44,7 @@ var currentTime = moment();
 //output = moment(roundrelease).toNow();
 //output = currentTime.format('HH:mm');
 
-                output += 'in ' + roundrelease.diff(currentTime, 'HH:mm:ss:ms') + '\n';
+                output += 'in ' + fark.format('HH:mm:ss') + '\n';
                 return output;
 
 }
