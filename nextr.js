@@ -27,7 +27,7 @@ var currentTime = moment();
     }
 */
 var roundrelease = moment('10:00', 'HH:mm');
-output = moment(roundrelease).tonow();
+output = moment(roundrelease).toNow();
 //output = currentTime.format('HH:mm');
 
     return output;
