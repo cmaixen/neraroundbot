@@ -125,7 +125,7 @@ function removeItemOnArray(bot, listId, participantsList, fullname, droppedby){
                     } else {
                         participantAccArr = arrParticipants[i].split(" ");
                         participantAcc = participantAccArr[0].trim();
-                        bot.sendMessage(participantAcc)
+                        bot.sendMessage(listId, participantAcc)
                         if (participantAcc.toLowerCase() == message.toLowerCase()) {
                               arrParticipants.splice(i, 1);
                         }
