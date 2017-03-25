@@ -53,10 +53,12 @@ if (process.env.NODE_ENV === 'production') {
 
 bot.sendMessage(msg.chat.id, roundstimes);
 
+/*
     for(var i=0; i<roundstimes.length; i+=1){
         outputListStrArr = roundstimes[i].split(", ");
         message += '' +outputListStrArr[0]+'\n';
     }
+*/
 
     bot.sendMessage(msg.chat.id, message);
 
