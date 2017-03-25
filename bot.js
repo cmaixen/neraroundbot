@@ -42,38 +42,26 @@ if (process.env.NODE_ENV === 'production') {
   // }
  });
 
- bot.onText(/\/round1/, function (msg, match) {
-
-   var roundstimes = [];
-   roundstimes = FirebaseManager.getroundtime(bot, msg.chat.id); 
-
+ bot.onText(/\/nextround/, function (msg, match) {
   // if(outhControl(msg.chat.id)) {
-    var message = "Round Times;"; //Time = " + Date().getTime();
-    var outputListStrArr = '';
 
-bot.sendMessage(msg.chat.id, roundstimes);
-
-/*
-    for(var i=0; i<roundstimes.length; i+=1){
-        outputListStrArr = roundstimes[i].split(", ");
-        message += '' +outputListStrArr[0]+'\n';
-    }
-*/
-
-    bot.sendMessage(msg.chat.id, message);
-
-     /*
+    /*
+     var message = "Rounds;"; //Time = " + Date().getTime();
       var getrounds = getroundtime(msg.chat.id)
       var rtimeItems = Object.keys(getrounds);
           rtimeItems.forEach(function(item) {
             message += "\n" + getrounds[item];
           })
-       bot.sendMessage(msg.chat.id, message);
-       */
+
+      */
+      var date = new Date();
+      message = date;
+      bot.sendMessage(msg.chat.id, message);
   // } else {
  //    bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
   // }
- }); 
+ });
+
 
 //match /create [list name] 
  bot.onText(/\/start (.+)/, function (msg, match) {
