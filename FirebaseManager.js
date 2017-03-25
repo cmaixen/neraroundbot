@@ -246,12 +246,12 @@ FirebaseManager.prototype.getroundtime = function (bot, listId) {
         outputListStr = '',
         outputListStrArr = '';
     
-    for(var i=0; i<roundtime.length; i+=1){
-        outputListStrArr = roundtime[i].split(", ");
-        outputListStr += '' +outputListStrArr[0]+'\n';
-    }
+    //for(var i=0; i<roundtime.length; i+=1){
+        //outputListStrArr = roundtime[i].split(", ");
+        //outputListStr += '' +outputListStrArr[0]+'\n';
+    //}
 
-    return outputListStr;
+    return roundtime;
 
   })
 };

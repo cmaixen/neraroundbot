@@ -44,16 +44,27 @@ if (process.env.NODE_ENV === 'production') {
 
  bot.onText(/\/round1/, function (msg, match) {
 
-   var message = FirebaseManager.getroundtime(bot, msg.chat.id); 
+   var roundstimes = FirebaseManager.getroundtime(bot, msg.chat.id); 
 
   // if(outhControl(msg.chat.id)) {
-     var message = "Round Times;"; //Time = " + Date().getTime();
+    var message = "Round Times;"; //Time = " + Date().getTime();
+    var outputListStrArr = '';
+
+    for(var i=0; i<roundstimes.length; i+=1){
+        outputListStrArr = roundstimes[i].split(", ");
+        message += '' +outputListStrArr[0]+'\n';
+    }
+
+    bot.sendMessage(msg.chat.id, message);
+    
+     /*
       var getrounds = getroundtime(msg.chat.id)
       var rtimeItems = Object.keys(getrounds);
           rtimeItems.forEach(function(item) {
             message += "\n" + getrounds[item];
           })
        bot.sendMessage(msg.chat.id, message);
+       */
   // } else {
  //    bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
   // }
