@@ -40,7 +40,7 @@ var currentTime = moment();
         }
 
 
-        fark = 'RoundSensei Time : ' + moment().format("HH:mm:ss") + '\n' + 'Next round will start in ' + moment.unix(output/1000).format("HH:mm:ss") + ' later';
+        fark = 'RoundSensei Time : ' + moment().format("HH:mm:ss") + ' (GMT)\n' + 'Next round will start in ' + moment.unix(output/1000).format("HH:mm:ss") + ' later';
         return fark;
 
 }
