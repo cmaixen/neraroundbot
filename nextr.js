@@ -50,8 +50,8 @@ var currentTime = moment();
 
 
                 //output += 'in ' + fark + '\n';
-                //output = ' Please use /rounds '
-                fark = moment(output).format('HH:mm:ss')
+                //output = ' Please aause /rounds '
+                fark = moment.unix(output).format('HH:mm:ss')
                 return output;
 
 }
