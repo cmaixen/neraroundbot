@@ -44,23 +44,10 @@ if (process.env.NODE_ENV === 'production') {
  });
 
  bot.onText(/\/nextround/, function (msg, match) {
-  // if(outhControl(msg.chat.id)) {
 
-    /*
-     var message = "Rounds;"; //Time = " + Date().getTime();
-      var getrounds = getroundtime(msg.chat.id)
-      var rtimeItems = Object.keys(getrounds);
-          rtimeItems.forEach(function(item) {
-            message += "\n" + getrounds[item];
-          })
-
-      */
-      //var date = new Date();
       message = nextr(msg.chat.id);
       bot.sendMessage(msg.chat.id, message);
-  // } else {
- //    bot.sendMessage(msg.chat.id, 'I dont work for this group. Please contact my masters if you want me to host your rounds too!\n/help');
-  // }
+
  });
 
 
