@@ -1,7 +1,6 @@
 var nextr = function(roundlist) {
 
-/* 
------
+
 var moment = require('moment');
 var getroundtime = require('./getRoundTime.js');
 var output = "";
@@ -28,7 +27,6 @@ var currentTime = moment();
 
           
     });
-*/
 
 /*
     for(var i=0; i<timecheck.length; i+=1){
