@@ -4,16 +4,20 @@ var nextr = function(roundlist) {
 var moment = require('moment');
 var getroundtime = require('./getRoundTime.js');
 var output = "";
-var timecheck = [];
 var roundrelease = moment('00:00', 'HH:mm');
 var fark = '';
+var ilkround = 0;
+var ilkroundtime = moment('');
 
 var currentTime = moment();
 
       var getrounds = getroundtime(roundlist);
       var rtimeItems = Object.keys(getrounds);
           rtimeItems.forEach(function(item) {
-          timecheck.push(moment(getrounds[item], 'HH:mm'));
+          if (ilkround==0) {
+              ilkround = 1;
+              ilkroundtime = moment(getrounds[item], 'HH:mm');
+          };
           roundrelease = moment(getrounds[item], 'HH:mm');
           //output += '' + moment(roundrelease).toNow() + '\n';
           //fark = roundrelease.diff(currentTime).toString
@@ -26,33 +30,18 @@ var currentTime = moment();
                 output += '' + roundrelease.diff(currentTime, 'HH:mm:ss') + '';
               }
           }
+        });
+        //Ertesi Gun Kontrolü 
+        if (output!='') {
 
-
-          
-    });
-
-/*
-    for(var i=0; i<timecheck.length; i+=1){
-        if (i == timecheck.length) {
-
-        } 
-        else {
-            if (currentTime > timecheck[i] && currentTime > timecheck[i+1]) {
-
-            } 
+        } else {
+            roundrelease = moment(ilkroundtime, 'HH:mm').add(1,'d');
+            output += '' + roundrelease.diff(currentTime, 'HH:mm:ss') + '';
         }
 
-    }
-*/
-//var roundrelease = moment('10:00', 'HH:mm');
-//output = moment(roundrelease).toNow();
-//output = currentTime.format('HH:mm');
 
-
-                //output += 'in ' + fark + '\n';
-                //output = ' Please aause /rounds '
-                fark = 'Next round will starts in ' + moment.unix(output/1000).format("HH:mm:ss") + ' later';
-                return fark;
+        fark = 'Next round will starts in ' + moment.unix(output/1000).format("HH:mm:ss") + ' later';
+        return fark;
 
 }
 module.exports = nextr; 
