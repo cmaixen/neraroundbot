@@ -1,11 +1,13 @@
 var nextr = function(roundlist) {
 
+/* 
+-----
 var moment = require('moment');
 var getroundtime = require('./getRoundTime.js');
 var output = "";
 var timecheck = [];
 var roundrelease = moment('00:00', 'HH:mm');
-var fark = moment();
+var fark = moment('');
 
 var currentTime = moment();
 
@@ -26,6 +28,7 @@ var currentTime = moment();
 
           
     });
+*/
 
 /*
     for(var i=0; i<timecheck.length; i+=1){
@@ -44,7 +47,9 @@ var currentTime = moment();
 //output = moment(roundrelease).toNow();
 //output = currentTime.format('HH:mm');
 
-                output += 'in ' + fark + '\n';
+
+                //output += 'in ' + fark + '\n';
+                output = ' Please use /rounds '
                 return output;
 
 }
