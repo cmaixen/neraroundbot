@@ -46,8 +46,8 @@ var currentTime = moment();
 //output = currentTime.format('HH:mm');
 
 
-                //output += 'in ' + fark + '\n';
-                output = ' Please use /rounds '
+                output += 'in ' + fark + '\n';
+                //output = ' Please use /rounds '
                 return output;
 
 }
