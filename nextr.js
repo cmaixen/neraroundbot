@@ -51,7 +51,7 @@ var currentTime = moment();
 
                 //output += 'in ' + fark + '\n';
                 //output = ' Please aause /rounds '
-                fark = moment.unix(output/1000).format("HH:mm:ss");
+                fark = 'Next round will starts in ' + moment.unix(output/1000).format("HH:mm:ss") + ' later';
                 return fark;
 
 }
