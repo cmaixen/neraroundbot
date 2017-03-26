@@ -16,12 +16,15 @@ var currentTime = moment();
           timecheck.push(moment(getrounds[item], 'HH:mm'));
           roundrelease = moment(getrounds[item], 'HH:mm');
           //output += '' + moment(roundrelease).toNow() + '\n';
-          fark = roundrelease.diff(currentTime).toString
+          //fark = roundrelease.diff(currentTime).toString
           if (roundrelease.diff(currentTime)<=0){
 
           } else {
+              if (output!='') {
+
+              } else {
                 output += 'in ' + roundrelease.diff(currentTime, 'HH:mm:ss') + '\n';
-                return output;
+              }
           }
 
 
@@ -46,7 +49,7 @@ var currentTime = moment();
 //output = currentTime.format('HH:mm');
 
 
-                output += 'in ' + fark + '\n';
+                //output += 'in ' + fark + '\n';
                 //output = ' Please use /rounds '
                 return output;
 
