@@ -12,6 +12,9 @@ var AdminList = "274298910###262889034";
 var AdminCheck = 0;
 var UnAuthMsg = '';
 
+const errorLog = require('./logger.js').errorlog;
+const successlog = require('./logger.js').successlog;
+
 if (process.env.NODE_ENV === 'production') {
   bot = new Bot(token);  bot.setWebHook('https://neraroundbot.herokuapp.com/' + bot.token);} else {
   bot = new Bot(token, { polling: true });
@@ -77,6 +80,8 @@ if (process.env.NODE_ENV === 'production') {
   */
 
   bot.onText(/@/, function (msg, match) {
+    successlog.info(`Success Message and variables: ${variable}`);
+    
    if(outhControl(msg.chat.id)) {
       var msgg =  msg.text;
       if(msgg.indexOf('@') == 0) {

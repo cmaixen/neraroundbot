@@ -16,6 +16,7 @@
     "express": "^4.13.4",
     "firebase": "^3.3.0",
     "node-telegram-bot-api": "^0.21.1",
-    "split-array": "^1.0.1"
+    "split-array": "^1.0.1",
+    "winston": "^2.3.1"
   }
 }
