@@ -41,6 +41,7 @@ var FirebaseManager = function () {};
 };
 
 function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
+  console.info('addItemOnArray - ' + msg.text);
   var list = listId.toString(),
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
@@ -194,6 +195,7 @@ FirebaseManager.prototype.managerParticipants = function(bot, listId, firstName,
 };
 
 FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, action, dropper){
+  console.info('managerGuests - ' + msg.text);
   ref.once('value', function(snapshot){        
     var listObj = snapshot.val(),
         list = listId.toString(),
