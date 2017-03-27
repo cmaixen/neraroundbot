@@ -79,7 +79,7 @@ if (process.env.NODE_ENV === 'production') {
    if(outhControl(msg.chat.id)) {
       var msgg =  msg.text;
       if(msgg.indexOf('@') == 0) {
-        if (msg.from.username!=''){
+        if (msg.from.username ==''){
           bot.sendMessage(msg.chat.id, 'You cant drop as you dont have a Telegram username!\n');
         } else {
           FirebaseManager.managerGuests(bot, msg.chat.id, msgg, 'add', msg.from.username);
