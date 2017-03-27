@@ -64,8 +64,10 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
                 bot.sendMessage(listId, 'This name already exists in the list! ' + message);
               } else {
                 //arrParticipants.push(message);
+                var arrmessage = [];
+                arrmessage.push(message)
                 listsRef.push({
-                   participants: message 
+                   participants: arrmessage 
                 });
                 console.info('push OK - ' + message); 
 
