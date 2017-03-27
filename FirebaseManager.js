@@ -62,7 +62,7 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
                 bot.sendMessage(listId, 'This name already exists in the list! ' + message);
               } else {
                 arrParticipants.push(message);
-                //bot.sendMessage(listId, 'Name was added!' + message);
+                bot.sendMessage(listId, 'Name was added! ' + message);
              // bot.sendMessage(msg.chat.id, message);
               }
             }
