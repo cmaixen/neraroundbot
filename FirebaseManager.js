@@ -63,12 +63,12 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
               if(arrParticipants.indexOf(message)>=0){
                 bot.sendMessage(listId, 'This name already exists in the list! ' + message);
               } else {
-                //arrParticipants.push(message);
-                var arrmessage = [];
-                arrmessage.push(message)
-                listsRef.push({
-                   participants: arrmessage 
-                });
+                arrParticipants.push(message);
+                //var arrmessage = [];
+                //arrmessage.push(message)
+                //listsRef.push({
+                //   participants: arrmessage 
+                //});
                 console.info('push OK - ' + message); 
 
                 //bot.sendMessage(listId, 'Name was added! ' + message);
@@ -77,10 +77,10 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
             }
           });
 
-         //listsRef.update ({
-         //     participants: arrParticipants
-         //   });
-          //console.info('update - ' + arrParticipants); 
+         listsRef.update ({
+              participants: arrParticipants
+            });
+         console.info('update - ' + arrParticipants); 
   }else{
     bot.sendMessage(listId, 'This name already exists in the list');
     return;
@@ -206,7 +206,7 @@ FirebaseManager.prototype.managerParticipants = function(bot, listId, firstName,
 
 FirebaseManager.prototype.managerGuests = function(bot, listId, guestName, action, dropper){
   console.info('managerGuests - ' + guestName);
-  ref.once('value', function(snapshot){        
+  return ref.once('value', function(snapshot){        
     var listObj = snapshot.val(),
         list = listId.toString(),
         listReference = 'list_'+list.replace(/-|\s/g,''),
