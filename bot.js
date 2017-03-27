@@ -75,14 +75,15 @@ if (process.env.NODE_ENV === 'production') {
   /**
   * matches @ -- Account ekle
   */
+
   bot.onText(/@/, function (msg, match) {
    if(outhControl(msg.chat.id)) {
       var msgg =  msg.text;
       if(msgg.indexOf('@') == 0) {
-        if (msg.from.username ==''){
-          bot.sendMessage(msg.chat.id, 'You cant drop as you dont have a Telegram username!\n');
-        } else {
+        if (msg.from.username !=''){ 
           FirebaseManager.managerGuests(bot, msg.chat.id, msgg, 'add', msg.from.username);
+        } else {
+          bot.sendMessage(msg.chat.id, 'You cant drop as you dont have a Telegram username!\n');
         }
       }
     } else {

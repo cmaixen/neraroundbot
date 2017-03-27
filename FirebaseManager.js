@@ -44,8 +44,8 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
   var list = listId.toString(),
       listReference = 'list_'+list.replace(/-|\s/g,''),
       listsRef = ref.child(listReference),
-      arrParticipants = participantsList[listReference].participants || [],
-      arrDropper = droppedby.first_name + '(' + droppedby.id + ')';
+      arrParticipants = participantsList[listReference].participants || [];
+      //arrDropper = droppedby.first_name + '(' + droppedby.id + ')';
      
      //msg.from.id + ' = ' + msg.from.first_name + ' ' + msg.from.last_name;
 
@@ -62,7 +62,7 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
                 bot.sendMessage(listId, 'This name already exists in the list! ' + message);
               } else {
                 arrParticipants.push(message);
-                bot.sendMessage(listId, 'Name was added! ' + message);
+                //bot.sendMessage(listId, 'Name was added! ' + message);
              // bot.sendMessage(msg.chat.id, message);
               }
             }
