@@ -80,8 +80,10 @@ if (process.env.NODE_ENV === 'production') {
   */
 
   bot.onText(/@/, function (msg, match) {
-    successlog.info(`Success Message and variables: ${msg.text}`);
-
+  //successlog.info(`Success Message and variables: ${msg.text}`);
+   
+   console.info('Test - ' + msg.text);
+   
    if(outhControl(msg.chat.id)) {
       var msgg =  msg.text;
       if(msgg.indexOf('@') == 0) {
