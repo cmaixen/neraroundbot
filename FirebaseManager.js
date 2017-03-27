@@ -63,18 +63,22 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
               if(arrParticipants.indexOf(message)>=0){
                 bot.sendMessage(listId, 'This name already exists in the list! ' + message);
               } else {
-                arrParticipants.push(message);
+                //arrParticipants.push(message);
+                listsRef.push({
+                   participants: message 
+                });
                 console.info('push OK - ' + message); 
+
                 //bot.sendMessage(listId, 'Name was added! ' + message);
              // bot.sendMessage(msg.chat.id, message);
               }
             }
           });
 
-         listsRef.update ({
-              participants: arrParticipants
-            });
-          console.info('update - ' + arrParticipants); 
+         //listsRef.update ({
+         //     participants: arrParticipants
+         //   });
+          //console.info('update - ' + arrParticipants); 
   }else{
     bot.sendMessage(listId, 'This name already exists in the list');
     return;
