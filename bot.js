@@ -139,7 +139,7 @@ if (process.env.NODE_ENV === 'production') {
      bot.onText(/update (.+)/, function (msg, match) {
 
         var condition = FirebaseManager.updateControl(bot, msg.chat.id, match[1],function(mycallback){
-          console.log ('Donen Text ' + mycallback)  
+          console.log ('Donen Text Func' + mycallback)  
           if (mycallback) {
             bot.sendMessage(msg.chat.id, 'Done');
           } else {
