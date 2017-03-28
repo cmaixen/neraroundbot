@@ -138,21 +138,21 @@ if (process.env.NODE_ENV === 'production') {
   //Deneme
      bot.onText(/update (.+)/, function (msg, match) {
 
-        var condition = FirebaseManager.updateControl(bot, msg.chat.id, match[1],function(mycallback){
+var id = setInterval(function(){
+
+        FirebaseManager.updateControl(bot, msg.chat.id, match[1],function(mycallback){
           console.log ('Donen Text Func' + mycallback)  
           if (mycallback) {
             bot.sendMessage(msg.chat.id, 'Done');
+            clearInterval(id);
           } else {
-            bot.sendMessage(msg.chat.id, 'Not Done');
+            //bot.sendMessage(msg.chat.id, 'Not Done');
           }
         });
 
-          console.log ('Donen Text ' + condition)
-          if (condition) {
-            bot.sendMessage(msg.chat.id, 'Done');
-          } else {
-            bot.sendMessage(msg.chat.id, 'Not Done');
-          }
+}, 100 ); // every 5 sec check to see if you can move on
+
+
         
       });
 
