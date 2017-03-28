@@ -12,9 +12,7 @@ firebase.initializeApp({
 var db  = firebase.database(),
     ref = db.ref('lists');
 
-var FirebaseManager = function (mycallback) {
-  this.mycallback = mycallback;
-};
+var FirebaseManager = function () {};
 
 /**
  * Function to create a new list
@@ -59,16 +57,16 @@ var FirebaseManager = function (mycallback) {
           if (updateconfield==0) {
             mycallback(true);
           } else { 
-            return this.mycallback(false);
+            return mycallback(false);
           };      
         } else if (setfield=='set') {
           if (updateconfield==0) {
             listsRef.update({
               updatefield: 1
             });            
-            return this.mycallback(true);
+            return mycallback(true);
           } else {
-            this.mycallback(false);
+            mycallback(false);
           };
         }
     });
