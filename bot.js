@@ -138,8 +138,9 @@ if (process.env.NODE_ENV === 'production') {
   //Deneme
      bot.onText(/update (.+)/, function (msg, match) {
 
-        var condition = FirebaseManager.updateControl(bot, msg.chat.id, match[1], condition);
+        var condition = FirebaseManager.updateControl(bot, msg.chat.id, match[1]);
 
+          console.log ('Donen Text ' + condition)
           if (condition) {
             bot.sendMessage(msg.chat.id, 'Done');
           } else {

@@ -66,7 +66,7 @@ var FirebaseManager = function (mycallback) {
         } else if (setfield=='set') {
           if (updateconfield==0) {
             listsRef.update({
-              updateconfield: 1
+              updatefield: 1
             });            
             this.mycallback = 'true';
             return this.mycallback;
