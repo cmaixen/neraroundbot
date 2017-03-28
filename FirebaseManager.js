@@ -41,7 +41,7 @@ var FirebaseManager = function () {};
   });
 };
 
-FirebaseManager.prototype.updateControl = function(bot, listId, setfield,callback){
+FirebaseManager.prototype.updateControl = function(bot, listId, setfield){
   //console.info('Update Control - ');
   ref.once('value', function(snapshot){        
     var listObj = snapshot.val(),
