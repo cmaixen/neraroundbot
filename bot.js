@@ -141,7 +141,7 @@ if (process.env.NODE_ENV === 'production') {
 var id = setInterval(function(){
 
         FirebaseManager.updateControl(bot, msg.chat.id, match[1],function(mycallback){
-          console.log ('Donen Text Func' + mycallback)  
+          console.log ('Donen Text Func ' + mycallback)  
           if (mycallback) {
             bot.sendMessage(msg.chat.id, 'Done');
             clearInterval(id);
@@ -152,9 +152,14 @@ var id = setInterval(function(){
 
 }, 100 ); // every 5 sec check to see if you can move on
 
-
-        
       });
+
+     bot.onText(/admins (.+)/, function (msg, match) {
+
+        var tee = bot.getChatAdministrators(msg.chat.id)
+        console.log ('admins ----- ' + tee);
+
+      });   
 
   /**
    * matches /showList
