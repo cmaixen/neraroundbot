@@ -41,7 +41,8 @@ var FirebaseManager = function () {};
   });
 };
 
-FirebaseManager.prototype.updateControl = function(bot, listId, setfield){
+
+FirebaseManager.updateControl = function(bot, listId, setfield, mycallback){
   //console.info('Update Control - ');
   ref.once('value', function(snapshot){        
     var listObj = snapshot.val(),
@@ -53,18 +54,22 @@ FirebaseManager.prototype.updateControl = function(bot, listId, setfield){
         if (setfield=='get') {
           console.info('Update Control - ' + updateconfield);
           if (updateconfield==0) {
-            return (true);
-          } else {
-            return (false);
+            mycallback = 'true';
+            return (mycallback);
+          } else { 
+            mycallback  = 'false';
+            return (mycallback);
           };      
         } else if (setfield=='set') {
           if (updateconfield==0) {
             listsRef.update({
               updateconfield: 1
             });            
-            return (true);
+            mycallback = 'true';
+            return (mycallback);
           } else {
-            return (false);
+            mycallback  = 'false';
+            return (mycallback);
           };
         }
     });
