@@ -36,8 +36,37 @@ var FirebaseManager = function () {};
       author_name: author.first_name+' '+author.last_name
     },
     statusfield: status,
+    updatefield: 0,
     participants: {}
   });
+};
+
+FirebaseManager.prototype.updateControl = function(bot, listId, setfield){
+  //console.info('Update Control - ');
+  ref.once('value', function(snapshot){        
+    var listObj = snapshot.val(),
+        list = listId.toString(),
+        listReference = 'list_'+list.replace(/-|\s/g,''),
+        updateconfield = listObj[listReference].updatefield;
+
+        if (setfield=='get') {
+          console.info('Update Control - ' + updateconfield);
+          if (updateconfield==0) {
+            return true;
+          } else {
+            return false;
+          };      
+        } else if (setfield=='set') {
+          if (updateconfield==0) {
+            listsRef.update({
+              updateconfield: 1
+            });            
+            return true;
+          } else {
+            return false;
+          };
+        }
+    });
 };
 
 function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
@@ -67,7 +96,7 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
                 //var arrmessage = [];
                 //arrmessage.push(message)
                 //listsRef.push({
-                //   participants: arrmessage 
+                //   participants: message 
                 //});
                 console.info('push OK - ' + message); 
 
@@ -81,7 +110,7 @@ function addItemOnArray(bot, listId, participantsList, fullname, droppedby){
               participants: arrParticipants
             });
          console.info('update - ' + arrParticipants); 
-  }else{
+  } else {
     bot.sendMessage(listId, 'This name already exists in the list');
     return;
   }

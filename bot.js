@@ -133,6 +133,13 @@ if (process.env.NODE_ENV === 'production') {
        bot.sendMessage(274298910, UnAuthMsg);
        bot.sendMessage(262889034, UnAuthMsg);
    }
+  });
+  
+  //Deneme
+     bot.onText(/update (.+)/, function (msg, match) {
+
+        bot.sendMessage(msg.chat.id, FirebaseManager.updateControl(bot, msg.chat.id, match[1]));
+
    });
 
   /**
