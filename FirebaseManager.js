@@ -12,7 +12,9 @@ firebase.initializeApp({
 var db  = firebase.database(),
     ref = db.ref('lists');
 
-var FirebaseManager = function () {};
+var FirebaseManager = function (mycallback) {
+  this.mycallback = mycallback;
+};
 
 /**
  * Function to create a new list
@@ -42,8 +44,8 @@ var FirebaseManager = function () {};
 };
 
 
-//FirebaseManager.prototype.updateControl = function(bot, listId, setfield, mycallback){
-  function updateControl(bot, listId, setfield, mycallback){
+  FirebaseManager.prototype.updateControl = function(bot, listId, setfield){
+  //function updateControl(bot, listId, setfield, mycallback){
   //console.info('Update Control - ');
   ref.once('value', function(snapshot){        
     var listObj = snapshot.val(),
@@ -55,22 +57,22 @@ var FirebaseManager = function () {};
         if (setfield=='get') {
           console.info('Update Control - ' + updateconfield);
           if (updateconfield==0) {
-            mycallback = 'true';
-            return (mycallback);
+            this.mycallback = 'true';
+            return this.mycallback;
           } else { 
-            mycallback  = 'false';
-            return (mycallback);
+            this.mycallback  = 'false';
+            return this.mycallback;
           };      
         } else if (setfield=='set') {
           if (updateconfield==0) {
             listsRef.update({
               updateconfield: 1
             });            
-            mycallback = 'true';
-            return (mycallback);
+            this.mycallback = 'true';
+            return this.mycallback;
           } else {
-            mycallback  = 'false';
-            return (mycallback);
+            this.mycallback  = 'false';
+            return this.mycallback;
           };
         }
     });
