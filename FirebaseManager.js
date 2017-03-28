@@ -47,6 +47,7 @@ FirebaseManager.prototype.updateControl = function(bot, listId, setfield){
     var listObj = snapshot.val(),
         list = listId.toString(),
         listReference = 'list_'+list.replace(/-|\s/g,''),
+        listsRef = ref.child(listReference),
         updateconfield = listObj[listReference].updatefield;
 
         if (setfield=='get') {
