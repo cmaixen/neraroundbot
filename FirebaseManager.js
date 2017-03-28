@@ -42,7 +42,8 @@ var FirebaseManager = function () {};
 };
 
 
-FirebaseManager.updateControl = function(bot, listId, setfield, mycallback){
+//FirebaseManager.prototype.updateControl = function(bot, listId, setfield, mycallback){
+  function updateControl(bot, listId, setfield, mycallback){
   //console.info('Update Control - ');
   ref.once('value', function(snapshot){        
     var listObj = snapshot.val(),
