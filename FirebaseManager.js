@@ -44,7 +44,7 @@ var FirebaseManager = function (mycallback) {
 };
 
 
-  FirebaseManager.prototype.updateControl = function(bot, listId, setfield){
+  FirebaseManager.prototype.updateControl = function(bot, listId, setfield, mycallback) {
   //function updateControl(bot, listId, setfield, mycallback){
   //console.info('Update Control - ');
   ref.once('value', function(snapshot){        
