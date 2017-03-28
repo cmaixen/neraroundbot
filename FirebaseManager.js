@@ -57,22 +57,18 @@ var FirebaseManager = function (mycallback) {
         if (setfield=='get') {
           console.info('Update Control - ' + updateconfield);
           if (updateconfield==0) {
-            this.mycallback = 'true';
-            return this.mycallback;
+            mycallback(true);
           } else { 
-            this.mycallback  = 'false';
-            return this.mycallback;
+            return this.mycallback(false);
           };      
         } else if (setfield=='set') {
           if (updateconfield==0) {
             listsRef.update({
               updatefield: 1
             });            
-            this.mycallback = 'true';
-            return this.mycallback;
+            return this.mycallback(true);
           } else {
-            this.mycallback  = 'false';
-            return this.mycallback;
+            this.mycallback(false);
           };
         }
     });
