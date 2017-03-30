@@ -53,6 +53,12 @@ if (process.env.NODE_ENV === 'production') {
 
  });
 
+ bot.on('edited_message', function (msg, match) {
+
+      //message = nextr(msg.chat.id);
+      bot.sendMessage(msg.chat.id, 'Dont understand!');
+
+ });
 
 //match /create [list name] 
  bot.onText(/\/start (.+)/, function (msg, match) {
