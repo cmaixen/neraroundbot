@@ -53,7 +53,7 @@ if (process.env.NODE_ENV === 'production') {
 
  });
 
- bot.on('edited_message', function (msg, match) {
+ bot.on('edited_message', (msg) => {
 
       //message = nextr(msg.chat.id);
       bot.sendMessage(msg.chat.id, 'Dont understand!');
