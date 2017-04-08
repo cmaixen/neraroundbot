@@ -13,7 +13,9 @@
       message += "use: /nextround -- To see how much time left to next round \n";
       
       message += "ADMIN COMMANDS: (Only for Admins of this group) \n";
+      message += "use: /startround -- To start a round which will be hosted manually \n";
       message += "use: /show -- To show the list of current round\n";
       message += "use: /check -- To show the list of users NOT Done \n";
+      message += "use: /closeround -- To close the round which hosted manually \n";
       bot.sendMessage(fromId, message);
     });
