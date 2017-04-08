@@ -1,0 +1,19 @@
+ bot.onText(/\/help/, function (msg, match) {
+      var fromId = msg.chat.id; // get the id, of who is sending the message
+      var message = "Hello! I'm RoundSensei\n I'm a round bot to host rounds for this group. \n";
+      
+      message += "\nMy creators & bot admins are -- @arkns & @neskirimli :)\n";
+      message += "\nGroup admins are --" + buraya admin listesini ceken function + "\n\n";
+      message += "\nHere is some info for you to see what you can do with me :)\n\n";
+      message += "use: @account -- To add your account to the round \n";
+      message += "use: /remove @DroppedAccount -- To remove your account from the round (Only dropper or admin can remove a dropped account) \n";
+      message += "use: D @DroppedAccount -- To say you are Done for the round \n";
+      message += "use: D @DroppedAccount engaged with @EngagerAccount -- To say you are Done for the round by engaging with a different account \n";
+      message += "use: /rounds -- To show the list of round times of this group in GMT \n";
+      message += "use: /nextround -- To see how much time left to next round \n";
+      
+      message += "ADMIN COMMANDS: (Only for Admins of this group) \n";
+      message += "use: /show -- To show the list of current round\n";
+      message += "use: /check -- To show the list of users NOT Done \n";
+      bot.sendMessage(fromId, message);
+    });
